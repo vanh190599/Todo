@@ -33,12 +33,12 @@ return [
     'facebook' => [
         'client_id' => '1092111527826829',  //client face của bạn
         'client_secret' => '217cc7c5fc5dfb21e67905edcd4723c8',  //client app service face của bạn
-        'redirect' => 'http://localhost:8080/eshoper/public/callback' //callback trả về
+        'redirect' => 'http://localhost:8080/Todo/public/callback' //callback trả về
     ],
 
     'google' => [
         'client_id' => '179609030877-gj2qgn6cj3c5qjktq4nqbjdknqesh7v6.apps.googleusercontent.com',
         'client_secret' => 'H70usRW0IYGN-FiepKua0u4q',
-        'redirect' => 'http://localhost:8080/eshoper/public/google-callback' //callback trả về
+        'redirect' => 'http://localhost:8080/Todo/public/google-callback' //callback trả về
     ],
 ];

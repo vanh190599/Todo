@@ -161,11 +161,7 @@
                                     @endif
 
                                     <div style="color:#666666; height: 25px; margin-top: 6px">
-                                        {{--                    <p style="line-height: 12px ;">Hãng: {{ $rows->brand_name }} </p>--}}
-                                        <p style="line-height: 12px;">
-                                            @if($rows->product_bao_hanh)Bảo hành {{$rows->product_bao_hanh}}
-                                            @endif
-                                        </p>
+
                                     </div>
 
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Mua hàng</a>
