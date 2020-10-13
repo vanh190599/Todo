@@ -16,7 +16,7 @@
                 <div class="single-products">
                     <div class="text-center">
                         <a href="{{url('chi-tiet-san-pham/'.$rows->product_id)}}">
-                            <img class="product-hover img_product" src="{{'upload/product/'.$rows->product_image}}" style="border-radius: 10px;" alt="" />
+                            <img class="product-hover img_product" src="{{'upload/product/'.$rows->product_image}}" style="border-radius: 3px;" alt="" />
                             @if($rows->product_sale_price > 0)
                                 <div class="anh_sale">
                                     <div class="phantram">

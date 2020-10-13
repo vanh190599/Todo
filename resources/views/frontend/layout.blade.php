@@ -68,7 +68,7 @@
             <!-- tin tuc -->
             <div class=" col-lg-4 col-md-12 col-sm-12">
                 <div class="box-right " style="margin-left: 23px; ">
-                    <p class="text-center title-lastest" style="background: #ce0707; font-size: 15px">TIN MỚI NHẤT</p>
+                    <p class="text-center title-lastest" style="background: #FE980F; font-size: 15px">TIN MỚI NHẤT</p>
                     <ul>
                         @foreach($news as $rows)
                             <li style="display: flex; padding-bottom: 5px">
@@ -187,8 +187,6 @@
 <footer id="footer"><!--Footer-->
 
 
-
-
     <div class="footer-bottom">
         <div class="container">
             <div class="text-center" style="padding: 20px 0 20px 0">
@@ -198,7 +196,6 @@
     </div>
 
 </footer><!--/Footer-->
-
 
 
 <script src="eshoper/js/jquery.js"></script>

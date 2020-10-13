@@ -53,7 +53,7 @@
 		<!-- news latest -->
         <div class="col-lg-4 col-md-4 col-sm-12 " style="padding: 0; margin: 0 ">
         	<div class="box-right">
-        		<p class="text-center title-lastest" style="background: #333333">TIN MỚI NHẤT</p>
+        		<p class="text-center title-lastest" style="background: #FE980F">TIN MỚI NHẤT</p>
         		<ul>
                     @foreach($news_new as $rows)
         			<li style="display: flex;">

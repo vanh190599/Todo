@@ -38,10 +38,10 @@
 <body>
 
 <header id="header"><!--header-->
-    <div class="container-fluid">
+    {{--<div class="container-fluid">
         <div class="banner">
         </div>
-    </div>
+    </div>--}}
     <div class="header-middle" style="background: #ce0707;">
         {{--    <div class="header-middle" style="background: linear-gradient(-90deg,#eb4040 0%,#ff9c00 100%);">--}}
         <div class="container">
@@ -145,7 +145,7 @@
                         <h2 style="color: orangered">danh mục tin</h2>
                         <div class="">
                             <ul class="list-group" style="border-bottom: 2px solid #dddddd">
-                                <li class=""><a class="list-group-item text-dark"  style="color: #333333; border-bottom: none ;border-radius: 0; padding-left: 10px " href="{{url('tin-moi')}}">TIN MỚI NHẤT</a></li>
+                                <li class=""><a class="list-group-item text-dark"  style="color: #FE980F; border-bottom: none ;border-radius: 0; padding-left: 10px " href="{{url('tin-moi')}}">TIN MỚI NHẤT</a></li>
                                 @foreach($news_category as $rows)
                                     <li class=""><a class="list-group-item text-dark"  style="color: #333333    ; border-bottom: none ;border-radius: 0; padding-left: 10px "
                                                     href="{{url('news-category/'.$rows->news_category_id)}}">{{ $rows->news_category_name  }} </a></li>

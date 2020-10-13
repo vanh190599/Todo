@@ -1,10 +1,10 @@
-<div class="container-fluid">
-    <div class="banner">
-    </div>
-</div>
+{{--<div class="container-fluid">--}}
+{{--    <div class="banner">--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 <header id="header"><!--header-->
-    <div class="header-middle" style="background: #ce0707;">
+    <div class="header-middle" style="background: #FE980F;">
 {{--    <div class="header-middle" style="background: linear-gradient(-90deg,#eb4040 0%,#ff9c00 100%);">--}}
         <div class="container">
             <div class="row" style="border-bottom: none;">

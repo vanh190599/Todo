@@ -84,11 +84,10 @@ class productController extends Controller
                 'category'=>$category, 'brand'=>$brand
         ));
     }
+
     public function do_edit_product(Request $request, $product_id){
-        if (!$this->AuthLogin()) return redirect('admin');
-
+        if(!$this->AuthLogin()){ return redirect('admin'); }
         $get_image = $request->file('product_image');
-
         if (!$get_image) {
             product::where('product_id','=', $product_id)
                 ->update([
@@ -101,17 +100,15 @@ class productController extends Controller
                     "product_desc" => $request->product_desc,
                     "product_uu_dai" => $request->product_uu_dai,
                     "product_so_luong" => $request->product_so_luong,
+                    "product_so_luong_ban" => $request->product_so_luong_ban
                 ]);
         } else {
             $file_name_old = product::where('product_id', $product_id)->value('product_image');
-
             if ($file_name_old!=NULL) {
                 unlink('upload/product/'.$file_name_old);
             }
-
             $file_name = time().'_'.$get_image->getClientOriginalName();
             $get_image->move('upload/product', $file_name);
-
             product::where('product_id','=', $product_id)
                 ->update([
                     "brand_id" => $request->brand_id,
@@ -119,6 +116,7 @@ class productController extends Controller
                     "product_name" => $request->product_name,
                     "product_price" => $request->product_price,
                     "product_status" => $request->product_status,
+                    //update ten file anh
                     "product_image" => $file_name,
                     "product_sale_price" => $request->product_sale_price,
                     "product_desc" => $request->product_desc,
