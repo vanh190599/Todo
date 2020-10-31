@@ -73,7 +73,7 @@
                         @foreach($news as $rows)
                             <li style="display: flex; padding-bottom: 5px">
                                 <a href="{{ url('news-detail/'.$rows->news_id) }}">
-                                    <img src="upload/news/{{$rows->news_image}}" style="width: 80px; height: 60px; background: 1px solid gray " alt="">
+                                    <img src="upload/news/{{$rows->news_image}}" style="width: 80px; height: 60px;" alt="">
                                     <div class="content-right" style="width: 200px">
                                         <a href="{{ url('news-detail/'.$rows->news_id) }}">
                                             <p class="limit">@isset($rows->news_title) {{ $rows->news_title }} @endisset</p>
@@ -96,22 +96,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <!-- chỉ trang Danh mục và Brand đc hiển thị/ Home không hiển thị -->
-                @if(isset($check_show_filter))
-                    <div class="brands_products"><!--brands_products-->
-                        {{--                            <h2 style="color: orangered"><span class="glyphicon glyphicon-filter"></span> giá</h2>--}}
-                        <div class="">
-                            <ul class="list-group">
-                                <li class="" style="">
-                                    <form action="{{url('loc-san-pham-theo-gia/'.$category_id)}}" method="get" style="display: flex; padding: 2px">
-                                        <input type="number" placeholder="Nhập giá mà bạn muốn" value="{{isset($khoang_gia)?$khoang_gia:''}}" name="khoang_gia" class="form-control">
-                                        <button class="pull-right btn"><span class="glyphicon glyphicon-search ">Tìm</span></button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                @endif
+{{--                <!-- chỉ trang Danh mục và Brand đc hiển thị/ Home không hiển thị -->--}}
+{{--                @if(isset($check_show_filter))--}}
+{{--                    <div class="brands_products"><!--brands_products-->--}}
+{{--                        --}}{{--                            <h2 style="color: orangered"><span class="glyphicon glyphicon-filter"></span> giá</h2>--}}
+{{--                        <div class="">--}}
+{{--                            <ul class="list-group">--}}
+{{--                                <li class="" style="">--}}
+{{--                                    <form action="{{url('loc-san-pham-theo-gia/'.$category_id)}}" method="get" style="display: flex; padding: 2px">--}}
+{{--                                        <input type="number" placeholder="Nhập giá mà bạn muốn" value="{{isset($khoang_gia)?$khoang_gia:''}}" name="khoang_gia" class="form-control">--}}
+{{--                                        <button class="pull-right btn"><span class="glyphicon glyphicon-search ">Tìm</span></button>--}}
+{{--                                    </form>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
 
                 <div class="left-sidebar">
 

@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img style="width: 40px; height: 40px" src="" alt="">
+                        <img style="width: 40px; height: 40px" src="{{URL::asset('adm/images/admin.jpg')}}" alt="">
                         <span class="username">{{ session('admin_name') }}</span>
                         <b class="caret"></b>
                     </a>
@@ -89,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
 
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="javascript:void(0)">
                             <i class="fa fa-newspaper-o"></i>
                             <span>Tin Tức</span>
                         </a>
@@ -149,14 +149,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a class="active" href="{{url('admin/list-order')}}">
                             <i class="glyphicon glyphicon-shopping-cart"></i>
                             <span>Quản lý đơn hàng</span>
-                            <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('order_qty')){{ session('order_qty') }} @else 0 @endif</span>
-                            <span class="pull-right text-danger" style="margin-right: 20px; ;">@if(session('order_qty_waitting')){{ session('order_qty_waitting') }} @else 0  @endif</span>
-                            <span class="pull-right" style="margin-right: 20px; color:greenyellow;">@if(session('order_qty_processed')){{ session('order_qty_processed') }} @else 0  @endif</span>
                         </a>
                     </li>
-
-
-
                 </ul>
             </div>
             <!-- sidebar menu end-->

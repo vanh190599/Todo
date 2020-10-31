@@ -1,8 +1,8 @@
 <?php
     //login
     Route::get( 'admin', 'adminController@index');
-    Route::get( 'admin/dashboard', 'adminController@show_dashboard'); //HIEN VIEW
-    Route::post('admin-dashboard', 'adminController@dashboard');
+    Route::get( 'admin/dashboard', 'adminController@show_dashboard');
+    Route::post('admin-dashboard', 'adminController@dashboard')->name('admin.login');
     Route::get( 'admin/logout', 'adminController@logout');
 
     //product
@@ -28,13 +28,12 @@
 
     //admin
     Route::group(array("prefix"=>"admin"), function (){
-        Route::get('admin','adminController@list')->name('list_admin');
+        Route::get('admin','adminController@list')->name('admin.index');
         Route::get('admin/add-admin', 'adminController@add_admin')->name('form_admin');
         Route::post('admin/do-add-admin', 'adminController@do_add_admin');
         route::get('admin/edit-admin/{admin_id}', 'adminController@edit_admin');
         Route::post('admin/do-edit-admin/{admin_id}', 'adminController@do_edit');
         Route::get('admin/delete-admin/{admin_id}', 'adminController@delete');
-        Route::get('admin/search-admin','adminController@search_admin');
     });
 
     //CATEGORY

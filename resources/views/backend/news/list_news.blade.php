@@ -2,9 +2,12 @@
 @section('main')
     <div class="table-agile-info">
         <div class="panel panel-default">
+            <a href="javascript:void(0)">
             <div class="panel-heading">
                 Liệt kê danh sách tin tức
             </div>
+            </a>
+
             <div class="w3-res-tb" ><a href="{{url('admin/add-news')}}" class="btn btn-primary ">Thêm tin tức</a></div>
             <div class="text-danger text-center @if(isset($message)) w3-res-tb  @endif ">
 {{--                Danh sách tin tức--}}

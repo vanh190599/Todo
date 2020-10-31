@@ -4,6 +4,8 @@
     <div class="col-sm-10">
         <p class="title-rand-news" >Chi tiet</p>
         <!-- row	 -->
+{{--        <img src="upload/news/{{ $record->news_image }}" style="width: 90px; height: 80px; " alt="">--}}
+
         <div class="rows">
             <!-- one new-->
             <div class="col-lg-8 col-md-12 col-sm-12" style="margin-bottom: 10px;">
@@ -26,19 +28,7 @@
                                     <img src="upload/news/{{ $rows->news_image }}" style="width: 90px; height: 80px; " alt="">
                                     <div class="content-right">
                                         <a href="{{ url('news-detail/'.$rows->news_id) }}">
-                                            <?php
-                                                $text = $rows->news_title;
-                                                $txt = "";
-                                                if( strlen($text) >= 60){
-                                                    for($a=0; $a<60; $a++ ){
-                                                        $txt[$a] = $text[$a];
-                                                    }
-                                                    echo $txt."...";
-                                                }else{
-                                                    $txt = $rows->news_title;
-                                                    echo $txt;
-                                                }
-                                            ?>
+                                            {{ $rows->news_title }}
                                         </a>
                                         <p style="padding-top: 14px; font-size: 13px">{{ isset($rows->created_at)?$rows->created_at:'' }}</p>
                                     </div>

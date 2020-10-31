@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6a277b49-483a-46d4-a33c-78e6a24159f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/categoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/categoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/customerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/customerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/manageOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/manageOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/newsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/newsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/productController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/productController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/eshoper/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/eshoper/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/1602519708_1588559139889b0cfe60066dd4e838da82c9ccc286_thumbnail_600x.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/product/1602519720_1588559139889b0cfe60066dd4e838da82c9ccc286_thumbnail_600x.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/product/add_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/product/add_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/manageOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/manageOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/category/list_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/category/list_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/login/admin_login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/login/admin_login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_4.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout_4.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout_news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product_details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/product_khuyen_mai.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product_khuyen_mai.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/shop.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/backend/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,12 +154,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="698" />
-  </component>
   <component name="ProjectId" id="1Yl5uy0daZJkWCUTLZanW6f4HRo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -164,11 +169,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Todo\app\Http\Requests\Admin" />
       <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\cart" />
       <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\home" />
       <recent name="C:\xampp\htdocs\VAstore\eshoper\resources\views\backend\dasboard" />
       <recent name="C:\xampp\htdocs\VAstore\eshoper\resources\views\backend\login" />
-      <recent name="C:\xampp\htdocs\VAstore\eshoper\resources\views\backend\customer" />
     </key>
   </component>
   <component name="RunManager">
@@ -253,6 +258,8 @@
       <workItem from="1602510222656" duration="9509000" />
       <workItem from="1602553519761" duration="658000" />
       <workItem from="1602599845082" duration="5414000" />
+      <workItem from="1602640223258" duration="83000" />
+      <workItem from="1604145021272" duration="14030000" />
     </task>
     <servers />
   </component>
@@ -264,26 +271,30 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601750439128" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602554184945">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602640304380">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602554184945" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602640304380" />
     <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602604995832">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1602604995832" />
-    <state x="390" y="102" width="822" height="596" key="find.popup" timestamp="1602605001293">
+    <state x="390" y="102" width="921" height="624" key="find.popup" timestamp="1604158490973">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="102" width="822" height="596" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1602605001293" />
+    <state x="390" y="102" width="921" height="624" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1604158490973" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1602514660709">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1366.738@0.0.1366.738" timestamp="1602514660709" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1602513607852">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1604157660521">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1602513607852" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604157660521" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1604158433149">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1604158433149" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -302,11 +313,6 @@
           <url>file://$PROJECT_DIR$/resources/views/frontend/home/home.blade.php</url>
           <line>81</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/frontend/layout.blade.php</url>
-          <line>108</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/backend/cartController.php</url>

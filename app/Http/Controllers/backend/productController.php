@@ -22,7 +22,7 @@ class productController extends Controller
 
     public function list_product(){
         if (!$this->AuthLogin()) return redirect('admin');
-        $this->update_qty();
+
         $data = DB::table("tbl_product")
             ->orderBy("product_id", "desc")
             ->paginate(5);
@@ -165,26 +165,4 @@ class productController extends Controller
             "check"=>$request->category_id
         ));
     }
-
-    public function update_qty(){
-        $order_qty = DB::table('tbl_order')->count();
-        $order_qty_waitting = DB::table('tbl_order')->where('order_status', 0)->count();
-        $order_qty_prosessed = DB::table('tbl_order')->where('order_status', 1)->count();
-
-        $customer_qty = DB::table('tbl_customer')->count();
-        $admin_qty = DB::table('tbl_admin')->count();
-        $products_qty = DB::table('tbl_product')->count();
-        $brand_qty = DB::table('tbl_brand')->count();
-        $category_qty = DB::table('tbl_category')->count();
-
-        session()->put('order_qty', $order_qty);
-        session()->put('customer_qty', $customer_qty);
-        session()->put('admin_qty', $admin_qty);
-        session()->put('product_qty', $products_qty);
-        session()->put('category_qty', $category_qty);
-        session()->put('order_qty_waitting', $order_qty_waitting);
-        session()->put('order_qty_processed', $order_qty_prosessed);
-        session()->put('brand_qty', $brand_qty);
-    }
-
 }

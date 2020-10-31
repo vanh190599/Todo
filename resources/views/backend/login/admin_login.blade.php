@@ -19,12 +19,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="log-w3">
     <div class="w3layouts-main">
         <h2>Sign In Now</h2>
-        <form action="{{URL::to('admin-dashboard')}}" method="post">
-            {{ csrf_field()  }}
-            <input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
-            <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
-            <p style="color: red"> {{ isset($loi)?$loi:"" }} </p>
+        <form action="{{ route('admin.login') }}" method="post">
+            @csrf
+            <input type="text" class="ggg" value="{{ old('admin_email') }}" name="admin_email" placeholder="E-MAIL">
+            @error('admin_email')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <input type="password" class="ggg" name="admin_password" value="{{ old('admin_password') }}" placeholder="PASSWORD">
+            @error('admin_password')
+            <div class="text-danger">{{ $message }}</div>
+            @enderror
+            <div class="text-danger">
+                @if(!empty(session('message'))) {{ session('message') }} @endif
+            </div>
+
             <div class="clearfix"></div>
+
             <input type="submit" value="Sign In" name="login">
         </form>
     </div>

@@ -3,16 +3,22 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use App\customer;
+use App\Http\Requests\Admin\AdminLoginRequest;
+use App\Services\AdminService;
 use Illuminate\Http\Request;
 use DB;
 use Session;
-use Socialite;
-use App\Model\login;
 use App\Model\admin;
 session_start();
 class adminController extends Controller
 {
+    private $admin;
+
+    public function __construct(admin $admin)
+    {
+        $this->admin = $admin;
+    }
+
     public function Authlogin(){
         $admin_id = session('admin_id');
         if(!$admin_id){
@@ -21,72 +27,61 @@ class adminController extends Controller
         return true;
     }
 
-    public function update_qty(){
-        $order_qty = DB::table('tbl_order')->count();
-        $order_qty_waitting = DB::table('tbl_order')->where('order_status', 0)->count();
-        $order_qty_prosessed = DB::table('tbl_order')->where('order_status', 1)->count();
-
-        $customer_qty = DB::table('tbl_customer')->count();
-        $admin_qty = DB::table('tbl_admin')->count();
-        $products_qty = DB::table('tbl_product')->count();
-        $brand_qty = DB::table('tbl_brand')->count();
-        $category_qty = DB::table('tbl_category')->count();
-
-        $news_qty = DB::table('tbl_news')->count();
-        session()->put('news_qty', $news_qty);
-        $news_category_qty = DB::table('tbl_news_category')->count();
-        session()->put('news_category_qty', $news_category_qty);
-
-        session()->put('order_qty', $order_qty);
-        session()->put('customer_qty', $customer_qty);
-        session()->put('admin_qty', $admin_qty);
-        session()->put('product_qty', $products_qty);
-        session()->put('category_qty', $category_qty);
-        session()->put('order_qty_waitting', $order_qty_waitting);
-        session()->put('order_qty_processed', $order_qty_prosessed);
-        session()->put('brand_qty', $brand_qty);
-    }
-
     public function index(){
+        if (!empty(session('admin_id'))) {
+            return redirect('admin/dashboard');
+        }
+
         return view('backend.login.admin_login');
     }
 
     public function show_dashboard(){
         if (!$this->Authlogin())  return redirect('admin');
-        $this->update_qty();
+
 
         return view('backend.dashboard.index');
     }
 
-    public function dashboard(Request $request){
-
-        $login_email = $request->admin_email;
-        $login_password = md5($request->admin_password);
-        $login = admin::where('admin_email', $login_email)->where('admin_password', $login_password)->first();
-        if ( $login != null) {
-            session()->put('admin_id', $login->admin_id );
-            session()->put('admin_name', $login->admin_name );
-            return redirect('admin/dashboard');
-        }
-        else {
-            return view('backend.login.admin_login')->with('loi', 'Email or password not exist !');
-        }
-    }
-
     public function logout(){
-        if(!$this->Authlogin()){ return redirect('admin'); }
-//        session()->put('admin_id', null );
-//        session()->put('admin_name', null );
-        session()->flush();
+        if (!$this->Authlogin()) return redirect('admin');
+        session()->put('admin_id', null );
+        session()->put('admin_name', null );
+
         return redirect('admin');
     }
 
-    public  function list(){
-        $this->update_qty();
-        if (!$this->Authlogin()){ return redirect('admin'); }
+    public function dashboard(AdminLoginRequest $request){
+        $data = $request->only('admin_email', 'admin_password');
 
-        $data = DB::table("tbl_admin")->orderBy("admin_id", "desc")->paginate(5);
-        return view('backend.admin.list', array('data'=>$data));
+        $admin = $this->admin
+            ->where('admin_email', $data['admin_email'] )
+            ->where('admin_password', md5($data['admin_password']))
+            ->first();
+
+        if (!empty($admin)) {
+            session()->put('admin_id', $admin->admin_id);
+            session()->put('admin_name', $admin->admin_name);
+            return redirect('admin/dashboard');
+        }
+
+        return back()->with('message', 'Tài khoản hoặc mật khẩu không chính xác!');
+    }
+
+    public  function list(Request $request){
+        if (!$this->Authlogin()) return redirect('admin');
+
+        $admins = $this->admin;
+
+        if (!empty($request->search )) {
+            $admins = $admins->where('admin_name', 'like', '%'.$request->search.'%')
+                ->orWhere('admin_email', 'like', '%'.$request->search.'%')
+                ->orderBy('admin_id', 'DESC')->paginate(10);
+            return view('backend.admin.list', compact('admins'));
+        }
+
+        $admins = $admins->orderBy('admin_id', 'DESC')->paginate(10);
+
+        return view('backend.admin.list', compact('admins'));
     }
 
     public function add_admin(){
@@ -103,8 +98,8 @@ class adminController extends Controller
         else {
             $data = $request->all();
             $data["admin_password"] = md5($request->admin_password);
-            $ad = admin::create($data);
-            return redirect()->route('list_admin')->with('add', "Thêm thành công!");
+            admin::create($data);
+            return redirect()->route('admin.index')->with('add', "Thêm thành công!");
         }
     }
 
@@ -138,14 +133,5 @@ class adminController extends Controller
         if (!$this->Authlogin()) return redirect('admin');
         admin::where('admin_id', '=', $admin_id)->delete();
         return redirect()->route('list_admin')->with('add', "Xóa thành công!");
-    }
-
-    public function search_admin(Request $request){
-        if (!$this->Authlogin()) return redirect('admin');
-        $data = DB::table("tbl_admin")
-            ->where('admin_name', 'like', '%'.$request->key.'%')
-            ->orWhere('admin_email', 'like', '%'.$request->key.'%')
-            ->orderBy("admin_id", "desc")->paginate(5);
-        return view('backend.admin.list', array("data"=>$data));
     }
 }

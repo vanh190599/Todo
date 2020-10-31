@@ -17,32 +17,6 @@ class customerController extends Controller
         return true;
     }
 
-    public function update_qty(){
-        $order_qty = DB::table('tbl_order')->count();
-        $order_qty_waitting = DB::table('tbl_order')->where('order_status', 0)->count();
-        $order_qty_prosessed = DB::table('tbl_order')->where('order_status', 1)->count();
-
-        $customer_qty = DB::table('tbl_customer')->count();
-        $admin_qty = DB::table('tbl_admin')->count();
-        $products_qty = DB::table('tbl_product')->count();
-        $brand_qty = DB::table('tbl_brand')->count();
-        $category_qty = DB::table('tbl_category')->count();
-
-        $news_qty = DB::table('tbl_news')->count();
-        session()->put('news_qty', $news_qty);
-        $news_category_qty = DB::table('tbl_news_category')->count();
-        session()->put('news_category_qty', $news_category_qty);
-
-        session()->put('order_qty', $order_qty);
-        session()->put('customer_qty', $customer_qty);
-        session()->put('admin_qty', $admin_qty);
-        session()->put('product_qty', $products_qty);
-        session()->put('category_qty', $category_qty);
-        session()->put('order_qty_waitting', $order_qty_waitting);
-        session()->put('order_qty_processed', $order_qty_prosessed);
-        session()->put('brand_qty', $brand_qty);
-    }
-
     public function list_customer(){
         if (!$this->AuthLogin()) return redirect('admin');
         $data = DB::table('tbl_customer')->orderBy('customer_id', 'desc')->paginate(6);
@@ -51,7 +25,6 @@ class customerController extends Controller
 
     public function delete_customer($customer_id){
         if(!$this->AuthLogin()){ return redirect('admin'); }
-        $this->update_qty();
         customer::where('customer_id', '=', $customer_id)->delete();
         return redirect('admin/list-customer')->with('message', "Xóa thành công!");
     }

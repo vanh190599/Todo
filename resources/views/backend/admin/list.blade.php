@@ -12,25 +12,17 @@
                     {{isset($message)?$message:""}}
                 </p>
                 <div class="col-sm-5 m-b-xs">
-{{--                    <select class="input-sm form-control w-sm inline v-middle">--}}
-{{--                        <option value="0">Bulk action</option>--}}
-{{--                        <option value="1">Delete selected</option>--}}
-{{--                        <option value="2">Bulk edit</option>--}}
-{{--                        <option value="3">Export</option>--}}
-{{--                    </select>--}}
-{{--                    <button class="btn btn-sm btn-default">Apply</button>--}}
                 </div>
                 <div class="col-sm-4">
                 </div>
                 <div class="col-sm-3">
-                    <form action="{{ url('admin/admin/search-admin') }}" method="get">
+                    <form action="{{ route('admin.index') }}" method="get">
                         <div class="input-group">
-                            <input type="text" name="key" class="input-sm form-control" placeholder="Search">
+                            <input type="text" name="search" value="{{ request()->search }}" class="input-sm form-control" placeholder="Nhập từ khóa">
                             <span class="input-group-btn">
-                      <button class="btn btn-sm btn-default" type="submit">Tìm kiếm</button>
+                             <button class="btn btn-sm btn-default" type="submit">Tìm kiếm</button>
+                            </span>
                     </form>
-
-                    </span>
                 </div>
             </div>
         </div>
@@ -53,36 +45,41 @@
                 <tbody>
 
                 <?php $i=1; ?>
-                @foreach($data as $rows)
+                @if(!empty($admins))
+                @foreach($admins as $key => $admin)
                     <tr>
                         <td></td>
-                        <td style="color: black">{{ $i++ }}</td>
-                        <td style="color: black;">{{$rows->admin_name}}</td>
-                        <td style="color: black;">{{$rows->admin_email}}</td>
-                        <td style="color: black;">{{$rows->admin_phone}}</td>
+                        <td style="color: black">{{ $key + $admins->firstItem()  }}</td>
+                        <td style="color: black;">{{ $admin->admin_name }}</td>
+                        <td style="color: black;">{{ $admin->admin_email }}</td>
+                        <td style="color: black;">{{ $admin->admin_phone }}</td>
                         <td>
-                            <span class="text-ellipsis">{{$rows->created_at}}</span>
+                            <span class="text-ellipsis">{{$admin->created_at}}</span>
                         </td>
 
                         <td>
-                            <a href="{{url('admin/admin/edit-admin/'.$rows->admin_id )}}" class="active" ui-toggle-class="">
+                            <a href="{{url('admin/admin/edit-admin/'.$admin->admin_id )}}" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil-square-o text-success text-active" alt="Sửa">Sửa</i>
                             </a>
                             &nbsp; &nbsp;
-                            <a href="{{url('admin/admin/delete-admin/'.$rows->admin_id )}}">
+                            <a href="{{url('admin/admin/delete-admin/'.$admin->admin_id )}}">
                                 <i class="fa fa-times text-danger text" onclick="return window.confirm('Are you sure?');" id="delete">Xóa</i>
                             </a>
                         </td>
 
                     </tr>
                 @endforeach
+                @else
+                    <tr>
+                        <td colspan="7"> Không có dữ liệu </td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
 
         </div>
         <div style="padding: 10px;" class="text-center">
-            {{--            {{ $data->links() }}--}}
-            {{$data->render()}}
+            {{ $admins->render() }}
         </div>
 
         <footer class="panel-footer">
