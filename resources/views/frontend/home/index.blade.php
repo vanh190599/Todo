@@ -1,4 +1,4 @@
-@extends('frontend\layout')
+@extends('frontend\layout\layout')
 @section('content')
 
     <!-- end san pham moi -->
@@ -118,6 +118,6 @@
     <!-- end sp chay -->
 
     <!--/San pham khuyen mai-->
-    @include('frontend.product_khuyen_mai')
+    @include('frontend.product.product_khuyen_mai')
     <!--/San pham khuyen mai-->
 @endsection

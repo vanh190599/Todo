@@ -19,6 +19,7 @@ class homeController extends BaseController
             ->orderBy('product_so_luong_ban', 'desc')
             ->paginate(4);
         $news = DB::table('tbl_news')->where('news_status', 1)->orderBy('news_id', 'desc')->paginate(4);
+
         return view('frontend.home.index', array(
               "category"=>$category,
               "brand"=>$brand,
@@ -28,5 +29,4 @@ class homeController extends BaseController
               "news"=>$news
         ));
     }
-
 }

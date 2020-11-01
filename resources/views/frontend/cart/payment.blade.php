@@ -1,4 +1,4 @@
-@extends('frontend.layout_4')
+@extends('frontend.layout.layout_4')
 @section('content')
 <div class="text-center" style="padding: 10px; color: #FE980F; font-size: 20px"> <span class="glyphicon glyphicon-shopping-cart"></span> Xem lại giỏ hàng của bạn @if(Cart::content()->count()) ( {{Cart::content()->count()}} )@endif </div>
 <div class="table-responsive">

@@ -29,7 +29,7 @@
 
 <body>
 
-@include('frontend.header')
+@include('frontend.layout.header')
 <hr style="margin-top: -7px; margin-bottom: 8px">
 
 <section id="slider"><!--slider-->

@@ -1,4 +1,4 @@
-@extends('frontend.layout_news')
+@extends('frontend.news.layout_news')
 @section('content')
 
 <div class="col-sm-10">

@@ -1,4 +1,4 @@
-@extends('frontend.layout_4')
+@extends('frontend.layout.layout_4')
 @section('content')
         <div class="text-center" style="font-size: 20px; color: red">
             @if(session('error-login')) {{session('error-login')}} @endif

@@ -4,4 +4,4 @@
         <h4 class="panel-title"><a href="#">Kids</a></h4>
     </div>
 </div>
-    @endsection
+@endsection
