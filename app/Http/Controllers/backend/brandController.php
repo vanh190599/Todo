@@ -17,7 +17,7 @@ class brandController extends Controller
 
     public function list_brand(){
         if (!$this->AuthLogin()) return redirect('admin');
-        $data = DB::table("tbl_brand")->orderBy("updated_at", "desc")->paginate(5);
+        $data = DB::table("tbl_brand")->orderBy("brand_id", "desc")->paginate(5);
         return view('backend.brand.list_brand', array('data'=>$data));
     }
 
@@ -27,7 +27,6 @@ class brandController extends Controller
         return view('backend.brand.add_edit_brand')->with("formAction", $formAction);
 
     }
-    
     public function do_add_brand(Request $request){
         $data = $request->all();
         $brand = brand::create($data);
@@ -40,7 +39,6 @@ class brandController extends Controller
         $formAction = "admin/do-edit-brand/".$brand_id;
         return view('backend.brand.add_edit_brand', array('formAction'=>$formAction, 'record'=>$brand));
     }
-
     public function do_edit_brand(Request $request, $brand_id){
         brand::where('brand_id','=', $brand_id)
         ->update([
@@ -62,7 +60,7 @@ class brandController extends Controller
         $data = DB::table("tbl_brand")
             ->where('brand_name', 'like', '%'.$request->key.'%')
             ->orWhere('brand_description', 'like', '%'.$request->key.'%')
-            ->orderBy("updated_at", "desc")->paginate(10);
+            ->orderBy("brand_id", "desc")->paginate(5);
         return view('backend.brand.list_brand', array("data"=>$data));
     }
 }

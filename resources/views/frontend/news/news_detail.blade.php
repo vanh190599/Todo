@@ -1,8 +1,11 @@
-@extends('frontend.news.layout_news')
+@extends('frontend.layout_news')
 @section('content')
     <br>
     <div class="col-sm-10">
         <p class="title-rand-news" >Chi tiet</p>
+        <!-- row	 -->
+{{--        <img src="upload/news/{{ $record->news_image }}" style="width: 90px; height: 80px; " alt="">--}}
+
         <div class="rows">
             <!-- one new-->
             <div class="col-lg-8 col-md-12 col-sm-12" style="margin-bottom: 10px;">
@@ -44,6 +47,7 @@
             <!-- end news latest -->
             <div class="clearfix"></div>
         </div>
+
         <!-- end rows -->
     </div>
 @endsection

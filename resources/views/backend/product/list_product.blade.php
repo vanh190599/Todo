@@ -6,11 +6,13 @@
                 <div class="panel-heading">
                     Danh mục sản phẩm
                 </div>
-            </a>
+            </a>s
+
+
             <div class="w3-res-tb" ><a href="{{url('admin/add-product')}}" class="btn btn-primary ">Add product</a></div>
             <div class="text-danger text-center @if(isset($message)) w3-res-tb  @endif ">
-                <i> {{isset($category_name) ? "Kết quả lọc: ".$category_name:""}} </i>
-                <i> {{isset($key_search) ? "Kết quả tìm kiếm cho ".$key_search:""}} </i>
+                <i>{{isset($category_name)?"Kết quả lọc: ".$category_name:""}}</i>
+                <i>{{isset($key_search)?"Kết quả tìm kiếm cho ".$key_search:""}}</i>
             </div>
             <div class="row w3-res-tb" style="margin-top: -35px;">
                 <p class="text-left" style="margin-top: 10px; margin-bottom: 3px; color:red;">&nbsp;&nbsp;&nbsp;
@@ -35,7 +37,6 @@
                             <span class="input-group-btn">
                                 <button class="btn btn-sm btn-default" type="submit">Search</button>
                             </span>
-                        </div>
                     </form>
                 </div>
             </div>

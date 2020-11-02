@@ -21,7 +21,7 @@ class adminController extends Controller
 
     public function Authlogin(){
         $admin_id = session('admin_id');
-        if (!$admin_id) {
+        if(!$admin_id){
             return false;
         }
         return true;
@@ -37,6 +37,8 @@ class adminController extends Controller
 
     public function show_dashboard(){
         if (!$this->Authlogin())  return redirect('admin');
+
+
         return view('backend.dashboard.index');
     }
 
@@ -77,7 +79,7 @@ class adminController extends Controller
             return view('backend.admin.list', compact('admins'));
         }
 
-        $admins = $admins->orderBy("updated_at", "desc")->paginate(10);
+        $admins = $admins->orderBy('admin_id', 'DESC')->paginate(10);
 
         return view('backend.admin.list', compact('admins'));
     }
@@ -124,7 +126,6 @@ class adminController extends Controller
                     "admin_phone" => $request->admin_phone,
                 ]);
         }
-
         return redirect()->route('list')->with('add', "Sửa thành công!");
     }
 

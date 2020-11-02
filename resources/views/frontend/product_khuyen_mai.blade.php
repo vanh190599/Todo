@@ -1,9 +1,10 @@
 <div class="recommended_items">
     <!--features_items-->
     <h2 class="title text-center" style="margin-top: 2px; color: orangered;">Sản phẩm khuyến mãi</h2>
+
     @if(!empty($sale_product))
         @foreach($sale_product as $rows)
-            <div class="col-lg-4 col-md-6 col-sm-6 ">
+            <div class="col-lg-3 col-md-6 col-sm-6 ">
                 <div class="product-image-wrapper a">
                     <div class="single-products test">
                         <div class="text-center">
@@ -35,4 +36,7 @@
             </div>
         @endforeach
     @endif
+
+
+
 </div>

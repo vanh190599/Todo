@@ -26,10 +26,11 @@
                         <div class="input-group">
                             <input type="text" name="key" class="input-sm form-control" placeholder="Search">
                             <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="submit">Search</button>
-                  </span>
-                        </div>
+                      <button class="btn btn-sm btn-default" type="submit">Search</button>
                     </form>
+
+          </span>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -42,10 +43,10 @@
                         <th style="color: black; width: 600px;" >Description</th>
                         <th style="color: black;" >Show</th>
                         <th style="color: black;" >Create</th>
-                        <th style="color: black;" >Action</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <?php $i=1; ?>
                     @foreach($data as $rows)
                         <tr>
@@ -54,10 +55,9 @@
                             <td style="color: black;">{{$rows->brand_name}}</td>
                             <td style="color: black;">{{$rows->brand_description}}</td>
                             <td>
-                     <span class="text-ellipsis" style="@if($rows->brand_status==1) color:black; @endif ">
-                     @if($rows->brand_status==1) Hiện @else Ẩn @endif
-                     </span>
-                            </td>
+                        <span class="text-ellipsis" style="@if($rows->brand_status==1) color:black; @endif ">
+                            @if($rows->brand_status==1) Hiện @else Ẩn @endif
+                        </span></td>
                             <td><span class="text-ellipsis">{{$rows->created_at}}</span></td>
                             <td>
                                 <a href="{{url('admin/edit-brand/'.$rows->brand_id )}}" class="active" ui-toggle-class="">
@@ -68,18 +68,41 @@
                                     <i class="fa fa-times text-danger text" onclick="return window.confirm('Are you sure?');" id="delete">Delete</i>
                                 </a>
                             </td>
+
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+
             </div>
             <div style="padding: 10px;" class="text-center">
+                {{--            {{ $data->links() }}--}}
                 {{$data->render()}}
             </div>
+
             <footer class="panel-footer">
                 <div class="row">
+
+                    {{--                <div class="col-sm-5 text-center">--}}
+                    {{--                    <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>--}}
+                    {{--                </div>--}}
+                    {{--                <div class="col-sm-7 text-right text-center-xs">--}}
+                    {{--                    <ul class="pagination pagination-sm m-t-none m-b-none">--}}
+                    {{--                        <li><a href=""><i class="fa fa-chevron-left"></i></a></li>--}}
+                    {{--                        <li><a href="">1</a></li>--}}
+                    {{--                        <li><a href="">2</a></li>--}}
+                    {{--                        <li><a href="">3</a></li>--}}
+                    {{--                        <li><a href="">4</a></li>--}}
+                    {{--                        <li><a href=""><i class="fa fa-chevron-right"></i></a></li>--}}
+                    {{--                    </ul>--}}
+                    {{--                </div>--}}
+
                 </div>
             </footer>
         </div>
     </div>
+    <script !src="">
+
+    </script>
+
 @endsection

@@ -1,4 +1,4 @@
-@extends('frontend.news.layout_news')
+@extends('frontend.layout_news')
 @section('content')
 
 <div class="col-sm-10">
@@ -9,7 +9,7 @@
 	<!-- row	 -->
     <div class="rows">
     	<!-- one new-->
-
+    	
         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-bottom: 10px;">
 			<div class="box">
 				<div class="photo-news">
@@ -21,7 +21,7 @@
 			</div>
         </div>
         <!-- one new-->
-
+		
 		<!-- news latest -->
         <div class="col-lg-4 col-md-4 col-sm-12 " style="padding: 0; margin: 0 ">
         	<div class="box-right">
@@ -33,7 +33,18 @@
 							<div class="content-right">
 								<a href="#">Microsoft Flight Simulation tựa game cần đến bộ nhớ 2TB mô ...</a>
 								<p style="padding-top: 20px; font-size: 10px">28-03-2020, 7:10 pm</p>
-							</div>
+							</div>	
+        				</a>
+        			</li>
+        			<div style="border: 1px dashed #dddddd"></div>
+        			
+        			<li style="display: flex;">
+        				<a href="#">
+        					<img src="upload/news/1.jpg" style="width: 90px; height: 80px; " alt="">
+							<div class="content-right">
+								<a href="#">Microsoft Flight Simulation tựa game cần đến bộ nhớ 2TB mô ...</a>
+								<p style="padding-top: 20px; font-size: 10px">28-03-2020, 7:10 pm</p>
+							</div>	
         				</a>
         			</li>
         			<div style="border: 1px dashed #dddddd"></div>
@@ -44,7 +55,7 @@
 							<div class="content-right">
 								<a href="#">Microsoft Flight Simulation tựa game cần đến bộ nhớ 2TB mô ...</a>
 								<p style="padding-top: 20px; font-size: 10px">28-03-2020, 7:10 pm</p>
-							</div>
+							</div>	
         				</a>
         			</li>
         			<div style="border: 1px dashed #dddddd"></div>
@@ -55,18 +66,7 @@
 							<div class="content-right">
 								<a href="#">Microsoft Flight Simulation tựa game cần đến bộ nhớ 2TB mô ...</a>
 								<p style="padding-top: 20px; font-size: 10px">28-03-2020, 7:10 pm</p>
-							</div>
-        				</a>
-        			</li>
-        			<div style="border: 1px dashed #dddddd"></div>
-
-        			<li style="display: flex;">
-        				<a href="#">
-        					<img src="upload/news/1.jpg" style="width: 90px; height: 80px; " alt="">
-							<div class="content-right">
-								<a href="#">Microsoft Flight Simulation tựa game cần đến bộ nhớ 2TB mô ...</a>
-								<p style="padding-top: 20px; font-size: 10px">28-03-2020, 7:10 pm</p>
-							</div>
+							</div>	
         				</a>
         			</li>
         			<div style="border: 1px dashed #dddddd"></div>
@@ -78,7 +78,7 @@
         <div class="clearfix"></div>
     </div>
     <!-- end rows -->
-
+	
 	<hr>
 
 

@@ -5,10 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a277b49-483a-46d4-a33c-78e6a24159f5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/homeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_30_030800_create_tbl_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_030800_create_tbl_news_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/categoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/categoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/customerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/customerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/manageOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/manageOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/newsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/newsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/productController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/productController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/manageOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/manageOrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/admin/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/admin/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/category/list_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/category/list_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/login/admin_login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/login/admin_login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_4.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout_4.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout_news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product_khuyen_mai.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product_khuyen_mai.blade.php" afterDir="false" />
+>>>>>>> parent of 5ee3ccc... up
       <change beforePath="$PROJECT_DIR$/routes/backend/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,11 +175,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\layout" />
-      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\news" />
-      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\productByCategory" />
-      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\product" />
       <recent name="C:\xampp\htdocs\Todo\app\Http\Requests\Admin" />
+      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\cart" />
+      <recent name="C:\xampp\htdocs\Todo\resources\views\frontend\home" />
+      <recent name="C:\xampp\htdocs\VAstore\eshoper\resources\views\backend\dasboard" />
+      <recent name="C:\xampp\htdocs\VAstore\eshoper\resources\views\backend\login" />
     </key>
   </component>
   <component name="RunManager">
@@ -239,10 +265,14 @@
       <workItem from="1602553519761" duration="658000" />
       <workItem from="1602599845082" duration="5414000" />
       <workItem from="1602640223258" duration="83000" />
+<<<<<<< HEAD
       <workItem from="1604145021272" duration="14693000" />
       <workItem from="1604236255422" duration="5653000" />
       <workItem from="1604282629404" duration="193000" />
       <workItem from="1604327837599" duration="1479000" />
+=======
+      <workItem from="1604145021272" duration="14030000" />
+>>>>>>> parent of 5ee3ccc... up
     </task>
     <servers />
   </component>
@@ -266,10 +296,17 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1602604995832" />
+<<<<<<< HEAD
     <state x="390" y="102" width="921" height="624" key="find.popup" timestamp="1604327917150">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="390" y="102" width="921" height="624" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1604327917150" />
+=======
+    <state x="390" y="102" width="921" height="624" key="find.popup" timestamp="1604158490973">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="390" y="102" width="921" height="624" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1604158490973" />
+>>>>>>> parent of 5ee3ccc... up
     <state width="600" height="428" key="javadoc.popup" timestamp="1602514660709">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -300,6 +337,15 @@
           <url>file://$PROJECT_DIR$/resources/views/frontend/home/home.blade.php</url>
           <line>81</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/backend/cartController.php</url>
+          <line>11</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\backend\cartController" />
+            <option name="methodName" value="tiep_tuc_mua_hang" />
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

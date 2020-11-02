@@ -1,4 +1,4 @@
-@extends('frontend.layout.layout_4')
+@extends('frontend.layout_4')
 @section('content')
 
 	<section id="cart_items">
@@ -7,7 +7,7 @@
                 @if(session('thanks')) {{ session('thanks') }} @endif
             </div>
 
-			<div style="font-size: 17xp; background: #dddddd; padding: 10px" class="text-danger">
+			<div style="font-size: 17xp; background: #dddddd; padding: 10px">
                 Để tiếp tục đặt hàng, quý khách vui lòng nhập thông tin bên dưới
             </div>
         <div class="text-center text-info" style="padding: 10px; font-size: 20px"></span>
@@ -43,10 +43,7 @@
 					</div>
 					<div class="col-sm-7">
                         <div class="text-center" style="color: #222222; font-size: 25px;">Thanh toán qua ngân hàng</div>
-                        <p>Tổng cộng: <span style="color: #EE0000; font-size: 19px">
-                                <b>{{ Cart::priceTotal() }} ₫</b>
-                            </span>
-                        </p>
+                        <p>Tổng cộng: <span style="color: #EE0000; font-size: 19px"> <b>149.0000</b></span></p>
                         <p>- Quý khách hàng thực hiện việc chuyển khoản qua ngân hàng tổng số tiền mua hàng</p>
                         <p>- Tên tài khoản: <span><b>Văn Anh VAstore</b></span></p>
                         <table border="1" cellpadding="5" style="border-colappse:collapse; border-color: #dddddd">

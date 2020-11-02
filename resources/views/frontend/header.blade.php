@@ -1,10 +1,17 @@
+{{--<div class="container-fluid">--}}
+{{--    <div class="banner">--}}
+{{--    </div>--}}
+{{--</div>--}}
+
 <header id="header"><!--header-->
     <div class="header-middle" style="background: #FE980F;">
+{{--    <div class="header-middle" style="background: linear-gradient(-90deg,#eb4040 0%,#ff9c00 100%);">--}}
         <div class="container">
             <div class="row" style="border-bottom: none;">
                 <div class="col-md-6 col-sm-12">
                     <div class="logo pull-left" style="width: 150px">
                         <a href="{{url('trang-chu')}}"><img src="eshoper/images/home/logo-3.png" class="logo-img" style="width: 150px; padding-top: 10px" alt="" /></a>
+{{--                        <a href="{{url('trang-chu')}}"><img src="eshoper/images/home/logo.png" alt="" /></a>--}}
                     </div>
                 </div>
 
@@ -30,6 +37,7 @@
             </div>
         </div>
     </div><!--/header-middle-->
+{{--       <div style="height: 100px"></div>--}}
 
     <div class="header-bottom" style="padding: 10px"><!--header-bottom-->
         <div class="container">
@@ -63,6 +71,7 @@
                 <div class="col-sm-6">
                     <div class="shop-menu pull-right" style="margin-bottom: 5px">
                         <ul class="nav navbar-nav">
+{{--                        <i class="fa fa-user"></i> Yêu thích</a></li>--}}
                             <li><a href="{{ url('show-login') }}"  style="background: none; color: black;"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
                             <li><a href="{{ url('show-cart') }}"  style="background: none;color: black; "><i class="fa fa-shopping-cart"></i> Giỏ hàng @if(Cart::content()->count()) ( {{Cart::content()->count()}} )@endif  </a></li>
                             <li style="">
@@ -74,7 +83,7 @@
                                                 <span style="margin-left: 50px"> <b>{{session('customer_name')}}</b></span>
                                                 @else
                                                 <i class="fa fa-user"> {{session('customer_name')}}</i>
-                                            @endif
+                                                @endif
                                         </a>
                                     @endif
                                 </li>
@@ -113,9 +122,11 @@
 <div style="position: fixed; right: 20px; top: 20px; z-index: 10" class="gio-hang1">
     <a href="{{ url('show-cart') }}">
         <div class="gio-hang-icon"  style="width: 70px; height: 70px; background: #546ce8; display: flex; justify-content:center; align-items: center; border-radius: 35px; position: relative; border: 1px solid white;" >
-            <b style="position: absolute; color: white; padding-bottom: 35px;"> {{ Cart::content()->count() }} </b>
+            <b style="position: absolute; color: white; padding-bottom: 35px;">{{ Cart::content()->count() }}</b>
             <span class="glyphicon glyphicon-shopping-cart" style="font-size: 30px; width: 40px; height: 45px; color:white; margin-top: 23px;
 margin-left: 7px;"></span>
         </div>
     </a>
 </div>
+
+{{--<hr style="margin-top: -7px; margin-bottom: 8px">--}}

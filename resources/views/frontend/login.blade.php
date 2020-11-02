@@ -1,4 +1,4 @@
-@extends('frontend.layout.layout_4')
+@extends('frontend.layout_4')
 @section('content')
 {{--  Nếu như chưa đăng nhập thì hiện, còn khi đăng nhập rồi thì không hiện Form đăng nhập nữa    --}}
     @if( session('customer_email') == null)

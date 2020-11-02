@@ -44,24 +44,24 @@
             <table class="table table-striped b-t b-light">
                 <thead>
                 <tr>
-                    <th  style="color: black; text-align: center" width="3%" >STT</th>
-                    <th  style="color: black; text-align: center" >Image</th>
-                    <th  style="color: black; text-align: center" >Title</th>
-                    <th style="color: black; text-align: center; width: 100px"  >Category</th>
-                    <th style="color: black; text-align: center" >Hot</th>
-                    <th style="color: black; text-align: center" >Display</th>
-                    <th style="color: black; text-align: center" >Action</th>
+                    <th  style="color: black; text-align: center" >STT</th>
+                    <th  style="color: black; text-align: center" >Ảnh</th>
+                    <th  style="color: black; text-align: center" >Tiêu đề</th>
+                    <th style="color: black; text-align: center; width: 100px"  >Danh mục</th>
+                    <th style="color: black; text-align: center" >Mô tả</th>
+                    <th style="color: black; text-align: center" >HOT</th>
+                    <th style="color: black; text-align: center" >Hiển thị</th>
                 </tr>
                 </thead>
-
                 <tbody>
-                @foreach($news as $key => $rows)
+                <?php $i = 1; ?>
+                @foreach($news as $rows)
                     <tr>
-                        <td style="color: black;">{{ $key + $news->firstItem() }}</td>
+                        <td style="color: black;">{{$i++}}</td>
                         <td style="color: black;">
                             <img class="" style="width: 80px; height: 65px; border: 1px solid #dddddd;" src="upload/news/{{$rows->news_image}}" alt="">
                         </td>
-                        <td style="color: black;" class="text-center">
+                        <td style="color: black;">
                             <?php
                                 $text = $rows->news_title;
                                 $txt = "";
@@ -76,7 +76,7 @@
                                 }
                             ?>
                         </td>
-                        <td style="color: black;" class="text-center">
+                        <td style="color: black;">
                             <?php
                                 $news_category_name = DB::table('tbl_news_category')
                                     ->where('news_category_id', $rows->news_category_id)
@@ -84,29 +84,42 @@
                                 echo $news_category_name;
                             ?>
                         </td>
-
-                        <td class="text-center">
-                            <span class="text-ellipsis" style="color: red">
-                                @if($rows->news_hot == 1) HOT @endif
-                            </span>
+                        <td style="color: black;">
+                            <?php
+                            $text = $rows->news_desc;
+                            $txt = "";
+                            if( strlen($text) >= 80){
+                                for($a=0; $a<80; $a++ ){
+                                    $txt[$a] = $text[$a];
+                                }
+                                echo $txt."...";
+                            }else{
+                                $txt = $rows->news_desc;
+                                echo $txt;
+                            }
+                            ?>
                         </td>
 
-                        <td class="text-center">
-                            <span class="text-ellipsis" style="@if($rows->news_status==1) color:black; @endif ">
-                                @if($rows->news_status == 1) Hiện @else Ẩn @endif
-                            </span>
+
+                        <td>
+                        <span class="text-ellipsis" style="color: red">
+                            @if($rows->news_hot ==1 ) HOT @endif
+                        </span>
                         </td>
 
-                        <td class="text-center">
+                        <td>
+                        <span class="text-ellipsis" style="@if($rows->news_status==1) color:black; @endif ">
+                            @if($rows->news_status==1) Hiện @else Ẩn @endif
+                        </span></td>
+
+                        <td>
                              <a href="{{url('admin/edit-news/'.$rows->news_id )}}" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil-square-o text-success text-active" alt="Sửa">Sửa</i>
                             </a>
-                            &nbsp;
                             <a href="{{url('admin/delete-news/'.$rows->news_id )}}" >
                                 <i class="fa fa-times text-danger text" onclick="return window.confirm('Are you sure?');" id="delete">Xóa</i>
                             </a>
                         </td>
-
                     </tr>
                 @endforeach
                 </tbody>

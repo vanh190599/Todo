@@ -40,7 +40,7 @@ class productController extends Controller
             ->orderBy('product_id', 'desc')
             ->paginate(8);
 
-        return view('frontend.product.product_details', array(
+        return view('frontend.product_details', array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$data,
@@ -72,7 +72,7 @@ class productController extends Controller
             ->where('category_status', 1)
             ->value('category_name');
 
-        return view('frontend.product.product',array(
+        return view('frontend.product',array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$product,
@@ -104,7 +104,7 @@ class productController extends Controller
             ->paginate(4);
         $brand_name = brand::where('brand_id', $brand_id)->value('brand_name');
 
-        return view('frontend.product.product',array(
+        return view('frontend.product',array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$product,
@@ -157,7 +157,7 @@ class productController extends Controller
                 ->value('category_name');
             $message_search = $category_name;
         }
-        return view('frontend.product..product', array(
+        return view('frontend.product', array(
             "sale_product"=>$sale_product,
             "category"=>$category,
             "brand"=>$brand,
@@ -168,7 +168,6 @@ class productController extends Controller
             "category_selected"=>$request->category_id
         ));
     }
-
     public function filter_product_price($category_id, Request $request){
         $category = DB::table('tbl_category')
             ->where('category_status', 1)
@@ -195,7 +194,7 @@ class productController extends Controller
             ->where('product_status', 1)
             ->paginate(16);
 
-        return view('frontend.product.product', array(
+        return view('frontend.product', array(
             "sale_product"=>$sale_product,
             "category"=>$category,
             "brand"=>$brand,
@@ -225,7 +224,7 @@ class productController extends Controller
             ->orderBy('product_id', 'desc')
             ->paginate(4);
 
-        return view('frontend.product.product', array(
+        return view('frontend.product', array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$new_product,
@@ -252,7 +251,7 @@ class productController extends Controller
             ->orderBy('product_id', 'desc')
             ->paginate(4);
 
-        return view('frontend.product.product', array(
+        return view('frontend.product', array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$top_sale_product,
@@ -275,7 +274,7 @@ class productController extends Controller
             ->orderBy('product_id', 'desc')
             ->paginate(16);
 
-        return view('frontend.product.product', array(
+        return view('frontend.product', array(
             "category"=>$category,
             "brand"=>$brand,
             "data"=>$sale_product,
