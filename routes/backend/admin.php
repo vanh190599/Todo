@@ -88,4 +88,11 @@
         Route::post('do-edit-news/{news_id}', 'newsController@do_edit_news');
         Route::get('delete-news/{news_id}', 'newsController@delete_news');
     });
+
+    //introduce
+    Route::group(array("prefix"=>'admin'), function (){
+        Route::get( 'introduce', 'introduceController@index')->name('admin.introduce.index');
+        Route::get( 'introduce/edit', 'introduceController@index')->name('admin.introduce.edit');
+        Route::post( 'introduce/submitEdit', 'introduceController@submitEdit')->name('admin.introduce.submitEdit');
+    });
 ?>

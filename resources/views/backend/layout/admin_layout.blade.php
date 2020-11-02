@@ -82,25 +82,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="leftside-navigation">
                 <ul class="sidebar-menu" id="nav-accordion">
                     <li>
-                        <a class="active" href="admin/dashboard">
+                        <a href="admin/dashboard">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
 
-                    <li class="sub-menu">
-                        <a href="javascript:void(0)">
-                            <i class="fa fa-newspaper-o"></i>
-                            <span>Tin Tức</span>
+                    <li>
+                        <a class="active" href="{{ url('admin/list-news-category') }}">
+                            <i class="fa fa-product-hunt"></i>
+                            <span>Danh mục tin tức</span>
+                            <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('product_qty')){{ session('product_qty') }}@endif</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="{{ url('admin/list-news-category') }}">Danh mục tin tức
-                                    <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('news_category_qty')){{ session('news_category_qty') }}@endif</span>
-                                </a></li>
-                            <li><a href="{{ url('admin/list-news') }}">Liệt kê tin tức
-                                    <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('news_qty')){{ session('news_qty') }}@endif</span>
-                                </a></li>
-                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="active" href="{{ url('admin/list-news') }}">
+                            <i class="fa fa-product-hunt"></i>
+                            <span>Liệt kê tin tức</span>
+                            <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('product_qty')){{ session('product_qty') }}@endif</span>
+                        </a>
                     </li>
 
                     <li>
@@ -149,6 +150,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a class="active" href="{{url('admin/list-order')}}">
                             <i class="glyphicon glyphicon-shopping-cart"></i>
                             <span>Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="active" href="{{ route('admin.introduce.index') }}">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                            <span>Giới thiệu</span>
                         </a>
                     </li>
                 </ul>

@@ -6,37 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6a277b49-483a-46d4-a33c-78e6a24159f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/brandController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/cartController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/homeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontend/productController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontend/productController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/brand/list_brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/brand/list_brand.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/news/list_news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/product/list_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/cart/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/cart/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/cart/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/cart/payment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/productByCategory/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/customer_infor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/customer_infor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/hand_cash.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_4.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/layout_4.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/layout_news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/news/news_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product_details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/product_details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product_khuyen_mai.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/product_khuyen_mai.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/sendemail.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shop.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/test.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backend/homeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backend/homeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_30_030800_create_tbl_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_030800_create_tbl_news_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/layout/admin_layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/backend/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/backend/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +240,9 @@
       <workItem from="1602599845082" duration="5414000" />
       <workItem from="1602640223258" duration="83000" />
       <workItem from="1604145021272" duration="14693000" />
-      <workItem from="1604236255422" duration="4862000" />
+      <workItem from="1604236255422" duration="5653000" />
+      <workItem from="1604282629404" duration="193000" />
+      <workItem from="1604327837599" duration="1479000" />
     </task>
     <servers />
   </component>
@@ -279,26 +254,30 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1601750439128" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1602640304380">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1604282821348">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602640304380" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1604282821348" />
+    <state x="518" y="292" key="NewPhpFileDialog" timestamp="1604328570661">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="518" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1604328570661" />
     <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602604995832">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1602604995832" />
-    <state x="390" y="102" width="921" height="624" key="find.popup" timestamp="1604241009792">
+    <state x="390" y="102" width="921" height="624" key="find.popup" timestamp="1604327917150">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="102" width="921" height="624" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1604241009792" />
+    <state x="390" y="102" width="921" height="624" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1604327917150" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1602514660709">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1366.738@0.0.1366.738" timestamp="1602514660709" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1604157660521">
+    <state x="339" y="165" key="run.anything.popup" timestamp="1604328499216">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604157660521" />
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1604328499216" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1604158433149">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
