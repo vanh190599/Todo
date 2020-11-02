@@ -61,20 +61,8 @@
                         <td style="color: black;">
                             <img class="" style="width: 80px; height: 65px; border: 1px solid #dddddd;" src="upload/news/{{$rows->news_image}}" alt="">
                         </td>
-                        <td style="color: black;" class="text-center">
-                            <?php
-                                $text = $rows->news_title;
-                                $txt = "";
-                                if( strlen($text) >= 80){
-                                    for($a=0; $a<80; $a++ ){
-                                        $txt[$a] = $text[$a];
-                                    }
-                                    echo $txt."...";
-                                }else{
-                                    $txt = $rows->news_title;
-                                    echo $txt;
-                                }
-                            ?>
+                        <td style="color: black;" >
+                            {{ $rows->news_title }}
                         </td>
                         <td style="color: black;" class="text-center">
                             <?php

@@ -12,7 +12,7 @@ class newsController extends Controller
     public function index(){
         $big = DB::table('tbl_news')
             ->where('news_status', 1)
-            ->orderBy('news_id', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->first();
         $news_category = DB::table('tbl_news_category')
             ->where('news_category_status', 1)

@@ -53,9 +53,9 @@
                                     <li><a href="{{ url('sale-product') }}">Sản phẩm khuyến mãi</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{url('trang-chu')}}"  class="text">Giới thiệu</a></li>
+
                             <li><a href="{{url('news')}}"  class="text">Tin tức</a></li>
-                            <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
+{{--                            <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>--}}
                         </ul>
                     </div>
                 </div>

@@ -1,19 +1,17 @@
 <!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+   Author: W3layout
+   Author URL: http://w3layouts.com
+   License: Creative Commons Attribution 3.0 Unported
+   License URL: http://creativecommons.org/licenses/by/3.0/
+   -->
 <!DOCTYPE html>
 <head>
-
     <base href="{{asset('')}}">
-
     <title>Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+      Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
     <link rel="stylesheet" href="adm/css/bootstrap.min.css" >
@@ -51,12 +49,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!--logo end-->
         <div class="nav notify-row" id="top_menu">
-
         </div>
         <div class="top-nav clearfix">
             <!--search & user info start-->
             <ul class="nav pull-right top-menu">
-
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -69,7 +65,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
-
             </ul>
             <!--search & user info end-->
         </div>
@@ -87,22 +82,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Dashboard</span>
                         </a>
                     </li>
-
-                    <li class="sub-menu">
-                        <a href="javascript:void(0)">
-                            <i class="fa fa-newspaper-o"></i>
-                            <span>Tin Tức</span>
+                    <li>
+                        <a class="active" href="{{url('admin/list-brand')}}">
+                            <i class="fa fa-book"></i>
+                            <span>Thương hiệu</span>
+                            <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('brand_qty')){{ session('brand_qty') }} @endif</span>
                         </a>
-                        <ul class="sub">
-                            <li><a href="{{ url('admin/list-news-category') }}">Danh mục tin tức
-                                    <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('news_category_qty')){{ session('news_category_qty') }}@endif</span>
-                                </a></li>
-                            <li><a href="{{ url('admin/list-news') }}">Liệt kê tin tức
-                                    <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('news_qty')){{ session('news_qty') }}@endif</span>
-                                </a></li>
-                        </ul>
                     </li>
-
                     <li>
                         <a class="active" href="{{url('admin/list-product')}}">
                             <i class="fa fa-product-hunt"></i>
@@ -110,39 +96,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('product_qty')){{ session('product_qty') }}@endif</span>
                         </a>
                     </li>
-
                     <li>
                         <a class="active" href="{{url('list-category')}}">
                             <i class="fa fa-book"></i>
-                            <span>Danh mục</span>
+                            <span>Danh mục sản phẩm</span>
                             <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('category_qty')){{ session('category_qty') }} @endif</span>
-
                         </a>
                     </li>
-
-                    <li>
-                        <a class="active" href="{{url('admin/list-brand')}}">
-                            <i class="fa fa-book"></i>
-                            <span>Thương hiệu</span>
-                            <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('brand_qty')){{ session('brand_qty') }} @endif</span>
-
-                        </a>
-                    </li>
-
                     <li>
                         <a class="active" href="{{url('admin/admin')}}">
                             <i class="fa fa-user-plus"></i>
                             <span>Quản trị viên</span>
                             <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('admin_qty')){{ session('admin_qty') }} @endif</span>
-
                         </a>
                     </li>
-
                     <li>
                         <a class="active" href="{{url('admin/list-customer')}}">
                             <i class="fa fa-user-md"></i>
                             <span>Quản lý khách hàng</span>
                             <span class="pull-right" style="margin-right: 20px; color:#dddddd;">@if(session('customer_qty')){{ session('customer_qty') }} @endif</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="{{url('admin/list-news-category')}}">
+                            <i class="fa fa-product-hunt"></i>
+                            <span>Danh mục tin tức</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="active" href="{{url('admin/list-news')}}">
+                            <i class="fa fa-product-hunt"></i>
+                            <span>Tin tức</span>
                         </a>
                     </li>
                     <li>
@@ -157,16 +141,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </aside>
     <!--sidebar end-->
-
-
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
-
             @yield('main')
             @yield('add_category');
-
-
         </section>
     </section>
     <!--main content end-->

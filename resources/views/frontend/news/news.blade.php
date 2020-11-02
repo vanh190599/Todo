@@ -10,42 +10,20 @@
     	<!-- one new-->
         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-bottom: 10px;">
 			<div class="box">
+                @if(!empty($big->news_id))
                 <a href="{{ url('news-detail/'.$big->news_id) }}">
                     <div class="photo-news">
                         <img src="upload/news/{{ $big->news_image }}" alt="">
                     </div>
                     <div class="tilte-news"><a href="{{ url('news-detail/'.$big->news_id) }}">
-                            <?php
-                            $text = $big->news_title;
-                            $txt = "";
-                            if( strlen($text) >= 80){
-                                for($a=0; $a<80; $a++ ){
-                                    $txt[$a] = $text[$a];
-                                }
-                                echo $txt."...";
-                            }else{
-                                $txt = $big->news_title;
-                                echo $txt;
-                            }
-                            ?>
+                            {{$big->news_title}}
                         </a></div>
                     <p>
-                        <?php
-//                        $text = $big->news_desc;
-//                        $txt = "";
-//                        if( strlen($text) >= 80){
-//                            for($a=0; $a<80; $a++ ){
-//                                $txt[$a] = $text[$a];
-//                            }
-//                            echo $txt."...";
-//                        }else{
-//                            $txt = $rows->news_desc;
-//                            echo $txt;
-//                        }
-                        ?>
+
                     </p>
                     <p style="padding-top: 20px; font-size: 12px">{{ isset($big->created_at)?$big->created_at:'' }}</p>
                 </a>
+                @endif
 			</div>
         </div>
         <!-- one new-->
@@ -61,19 +39,7 @@
         					<img src="upload/news/{{ $rows->news_image }}" style="width: 90px; height: 70px; " alt="">
 							<div class="content-right">
 								<a href="{{ url('news-detail/'.$rows->news_id) }}">
-                                    <?php
-                                    $text = $rows->news_title;
-                                    $txt = "";
-                                    if( strlen($text) >= 50){
-                                        for($a=0; $a<50; $a++ ){
-                                            $txt[$a] = $text[$a];
-                                        }
-                                        echo $txt."...";
-                                    }else{
-                                        $txt = $rows->news_title;
-                                        echo $txt;
-                                    }
-                                    ?>
+                                   {{ $rows->news_title }}
                                 </a>
 								<p style="padding-top: 20px; font-size: 10px">
                                     {{ isset($rows->created_at)?$rows->created_at:'' }}
@@ -107,36 +73,12 @@
 					<img src="upload/news/{{ $rows->news_image }}" class="img-thumbnail" alt="">
 
 					<div class="title-news-hot" style="background: none; margin-left: 5px"><b>
-                            <?php
-                            $text = $rows->news_title;
-                            $txt = "";
-                            if( strlen($text) >= 90){
-                                for($a=0; $a<90; $a++ ){
-                                    $txt[$a] = $text[$a];
-                                }
-                                echo $txt."...";
-                            }else{
-                                $txt = $rows->news_title;
-                                echo $txt;
-                            }
-                            ?>
+                            {{$rows->news_title}}
 					</b>
 
 					<p style="color: gray; font-size: 13px; ">{{ isset($rows->created_at)?$rows->created_at:'' }}</p>
 					<p>
-                        <?php
-                        $text = $rows->news_desc;
-                        $txt = "";
-                        if( strlen($text) >= 50){
-                            for($a=0; $a<50; $a++ ){
-                                $txt[$a] = $text[$a];
-                            }
-                            echo $txt."...";
-                        }else{
-                            $txt = $rows->news_desc;
-                            echo $txt;
-                        }
-                        ?>
+                        {!! $rows->news_desc !!}
                     </p>
 				</div>
 				</a>
@@ -156,37 +98,13 @@
                         <img src="upload/news/{{ $rows->news_image }}" class="img-thumbnail" alt="">
 
                         <div class="title-news-hot" style="background: none; margin-left: 5px"><b>
-                                <?php
-                                $text = $rows->news_title;
-                                $txt = "";
-                                if( strlen($text) >= 90){
-                                    for($a=0; $a<90; $a++ ){
-                                        $txt[$a] = $text[$a];
-                                    }
-                                    echo $txt."...";
-                                }else{
-                                    $txt = $rows->news_title;
-                                    echo $txt;
-                                }
-                                ?>
+                                {{ $rows->news_title }}
                             </b>
 
                             <p style="color: gray; font-size: 13px; ">{{ isset($rows->created_at)?$rows->created_at:'' }}</p>
                             <p>
-                                <?php
-                                $text = $rows->news_desc;
-                                $txt = "";
-                                if( strlen($text) >= 50){
-                                    for($a=0; $a<50; $a++ ){
-                                        $txt[$a] = $text[$a];
-                                    }
-                                    echo $txt."...";
-                                }else{
-                                    $txt = $rows->news_desc;
-                                    echo $txt;
-                                }
-                                ?>
                             </p>
+                            {!! $rows->news_desc !!}
                         </div>
                     </a>
                 </div>

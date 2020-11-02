@@ -45,8 +45,11 @@
 
                     <div class="carousel-inner" style="width: 795px">
                         <div class="item active" style="width: 895px">
-                            <img src="upload/slide/p1.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
+                            <img src="upload/slide/Capture.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
                         </div>
+{{--                        <div class="item active" style="width: 895px">--}}
+{{--                            <img src="upload/slide/p1.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">--}}
+{{--                        </div>--}}
                         <div class="item" style="width: 895px">
                             <img src="upload/slide/p2.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
                         </div>
