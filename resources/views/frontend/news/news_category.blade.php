@@ -13,35 +13,11 @@
 					<img src="upload/news/{{ $rows->news_image }}" class="img-thumbnail" style="width: 300px; height: 200px" alt="">
 
 					<div class="title-news-hot" style="background: none; margin-left: 5px"><b>
-                            <?php
-                            $text = $rows->news_title;
-                            $txt = "";
-                            if( strlen($text) >= 80){
-                                for($a=0; $a<80; $a++ ){
-                                    $txt[$a] = $text[$a];
-                                }
-                                echo $txt."...";
-                            }else{
-                                $txt = $rows->news_title;
-                                echo $txt;
-                            }
-                            ?>
+                          {{ $rows->news_title }}
 					</b>
 
 					<p style="margin-top: 25px">
-                        <?php
-                        $text = $rows->news_desc;
-                        $txt = "";
-                        if( strlen($text) >= 80){
-                            for($a=0; $a<80; $a++ ){
-                                $txt[$a] = $text[$a];
-                            }
-                            echo $txt."...";
-                        }else{
-                            $txt = $rows->news_desc;
-                            echo $txt;
-                        }
-                        ?>
+                        {{ $rows->news_desc }}
                     </p>
 
 					<p style="color: gray; font-size: 15px; padding-top: 20px ">{{ isset($rows->created_at)?$rows->created_at:'' }}</p>

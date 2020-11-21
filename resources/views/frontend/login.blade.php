@@ -26,19 +26,19 @@
 					</div><!--/login form-->
                     <br>
                     <p style="padding-bottom: 12px"></p>
-                    <a href="{{ url('login-facebook') }}" >
-                        <div style="padding: 2px; background: #3b5998">
-                            <img src="eshoper/images/facebook.png" style="width: 40px; height: 40px; margin-bottom: 5px" >
-                            <span style="color:white; margin-left: 20px; font-size: 17px; padding-top: 12px">Login with Facebook</span>
-                        </div>
-                    </a>
-                    <br>
-                    <a href="{{ url('login-google') }}" >
-                        <div style="padding: 2px; background: #fc5345">
-                            <img src="eshoper/images/google.png" style="width: 40px; height: 40px; margin-bottom: 2px; margin-top: 3px; margin-left: 7px" >
-                            <span style="color:white; margin-left: 20px; font-size: 17px; padding-top: 15px">Login with Google</span>
-                        </div>
-                    </a>
+{{--                    <a href="{{ url('login-facebook') }}" >--}}
+{{--                        <div style="padding: 2px; background: #3b5998">--}}
+{{--                            <img src="eshoper/images/facebook.png" style="width: 40px; height: 40px; margin-bottom: 5px" >--}}
+{{--                            <span style="color:white; margin-left: 20px; font-size: 17px; padding-top: 12px">Login with Facebook</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <br>--}}
+{{--                    <a href="{{ url('login-google') }}" >--}}
+{{--                        <div style="padding: 2px; background: #fc5345">--}}
+{{--                            <img src="eshoper/images/google.png" style="width: 40px; height: 40px; margin-bottom: 2px; margin-top: 3px; margin-left: 7px" >--}}
+{{--                            <span style="color:white; margin-left: 20px; font-size: 17px; padding-top: 15px">Login with Google</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
 				</div>
 
 				<div class="col-sm-1">

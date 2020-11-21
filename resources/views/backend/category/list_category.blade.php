@@ -3,7 +3,7 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
         <div class="panel-heading">
-            Danh mục sản phẩm
+            Danh mục
         </div>
         <div class="w3-res-tb" ><a href="{{url('add-category')}}" class="btn btn-primary ">Add category</a></div>
 {{--        <div class="{{isset($message)?"w3-res-tb":""}} text-danger" >--}}

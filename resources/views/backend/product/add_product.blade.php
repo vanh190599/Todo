@@ -14,7 +14,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên sản phẩm <span class="text-danger">*</span></label>
-                                <input type="text" value="" class="form-control" name="product_name" id="exampleInputEmail1" >
+                                <input type="text" class="form-control" value="{{ old('product_name') }}" name="product_name" id="exampleInputEmail1" >
                                 @error('product_name')
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
@@ -59,16 +59,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá gốc <span class="text-danger">*</span></label>
-                                <input type="" value=""
-                                        class="form-control" name="product_price" id="exampleInputEmail1" >
+                                <input value="{{ old('product_price') }}" class="form-control"  name="product_price" id="exampleInputEmail1" >
                                 @error('product_price')
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá bán <span class="text-danger">*</span></label>
-                                <input type="   " value=""
-                                        class="form-control" name="product_sale_price" id="exampleInputEmail1" >
+                                <input class="form-control" value="{{ old('product_sale_price') }} " name="product_sale_price" id="exampleInputEmail1" >
                                 @error('product_sale_price')
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
@@ -76,8 +74,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Số lượng <span class="text-danger">*</span></label>
-                                <input type="" value=""
-                                        class="form-control" name="product_so_luong" id="exampleInputEmail1" >
+                                <input value="{{ old('product_so_luong') }}" class="form-control" name="product_so_luong" id="exampleInputEmail1" >
                                 @error('product_so_luong')
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
@@ -90,7 +87,7 @@
                             <input type="hidden" name="" id="">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mô tả <span class="text-danger">*</span></label>
-                                <textarea rows="6" style="resize: none" required name="product_desc" class="form-control"></textarea>
+                                <textarea rows="6" style="resize: none" value="{{ old('product_desc') }}" required name="product_desc" class="form-control"></textarea>
                                 <script type="text/javascript">
                                     CKEDITOR.replace("product_desc");
                                 </script>
@@ -98,14 +95,14 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Ưu đãi <span class="text-danger">*</span></label>
-                                <textarea rows="6" style="resize: none" required name="product_uu_dai" class="form-control"></textarea>
+                                <textarea rows="6" style="resize: none" value="{{ old('product_uu_dai') }}" required name="product_uu_dai" class="form-control"></textarea>
                                 <script type="text/javascript">
                                     CKEDITOR.replace("product_uu_dai");
                                 </script>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Hiểt thị</label>
+                                <label for="exampleInputEmail1">Hiển thị</label>
                                 <select name="product_status" id="get_status" class="form-control input-sm m-bot15">
                                     <option value="1" >Hiển thị</option>
                                     <option value="0" >Ẩn</option>

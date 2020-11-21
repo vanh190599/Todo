@@ -5,11 +5,9 @@
 	<h2 class="title text-center" style="margin-top: 2px; color: orangered">
     	Trang tin tức
     </h2>
-
-	<!-- row	 -->
+	<!-- row-->
     <div class="rows">
     	<!-- one new-->
-
         <div class="col-lg-8 col-md-8 col-sm-12" style="margin-bottom: 10px;">
 			<div class="box">
                 <a href="{{ url('news-detail/'.$big->news_id) }}">
@@ -33,17 +31,17 @@
                         </a></div>
                     <p>
                         <?php
-                        $text = $big->news_desc;
-                        $txt = "";
-                        if( strlen($text) >= 80){
-                            for($a=0; $a<80; $a++ ){
-                                $txt[$a] = $text[$a];
-                            }
-                            echo $txt."...";
-                        }else{
-                            $txt = $rows->news_desc;
-                            echo $txt;
-                        }
+//                        $text = $big->news_desc;
+//                        $txt = "";
+//                        if( strlen($text) >= 80){
+//                            for($a=0; $a<80; $a++ ){
+//                                $txt[$a] = $text[$a];
+//                            }
+//                            echo $txt."...";
+//                        }else{
+//                            $txt = $rows->news_desc;
+//                            echo $txt;
+//                        }
                         ?>
                     </p>
                     <p style="padding-top: 20px; font-size: 12px">{{ isset($big->created_at)?$big->created_at:'' }}</p>
@@ -55,7 +53,7 @@
 		<!-- news latest -->
         <div class="col-lg-4 col-md-4 col-sm-12 " style="padding: 0; margin: 0 ">
         	<div class="box-right">
-        		<p class="text-center title-lastest" style="background: #333333">TIN MỚI NHẤT</p>
+        		<p class="text-center title-lastest" style="background: #FE980F">TIN MỚI NHẤT</p>
         		<ul>
                     @foreach($news_new as $rows)
         			<li style="display: flex;">

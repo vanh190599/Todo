@@ -2,9 +2,13 @@
 @section('main')
     <div class="table-agile-info">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                Danh mục sản phẩm
-            </div>
+            <a href="javascript:void(0)">
+                <div class="panel-heading">
+                    Danh mục sản phẩm
+                </div>
+            </a>s
+
+
             <div class="w3-res-tb" ><a href="{{url('admin/add-product')}}" class="btn btn-primary ">Add product</a></div>
             <div class="text-danger text-center @if(isset($message)) w3-res-tb  @endif ">
                 <i>{{isset($category_name)?"Kết quả lọc: ".$category_name:""}}</i>
