@@ -39,4 +39,8 @@
     Route::get('news-category/{news_category_id}', 'newsController@news_category');
     Route::get('news-detail/{news_id}', 'newsController@news_detail');
     Route::get('tin-moi', 'newsController@tin_moi');
+
+    Route::get('test', function(){
+        dd(2);
+    });
 ?>

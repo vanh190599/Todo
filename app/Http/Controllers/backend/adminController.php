@@ -37,8 +37,6 @@ class adminController extends Controller
 
     public function show_dashboard(){
         if (!$this->Authlogin())  return redirect('admin');
-
-
         return view('backend.dashboard.index');
     }
 

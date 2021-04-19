@@ -84,6 +84,7 @@
 {{--                                <input type="number" value=""--}}
 {{--                                        class="form-control" name="product_so_luong_ban" id="exampleInputEmail1" >--}}
 {{--                            </div>--}}
+
                             <input type="hidden" name="" id="">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mô tả <span class="text-danger">*</span></label>

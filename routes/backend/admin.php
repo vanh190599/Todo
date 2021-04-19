@@ -1,6 +1,6 @@
 <?php
     //login
-    Route::get( 'admin', 'adminController@index');
+    Route::get( '/admin', 'adminController@index');
     Route::get( 'admin/dashboard', 'adminController@show_dashboard');
     Route::post('admin-dashboard', 'adminController@dashboard')->name('admin.login');
     Route::get( 'admin/logout', 'adminController@logout');
@@ -90,9 +90,9 @@
     });
 
     //introduce
-    Route::group(array("prefix"=>'admin'), function (){
-        Route::get( 'introduce', 'introduceController@index')->name('admin.introduce.index');
-        Route::get( 'introduce/edit', 'introduceController@index')->name('admin.introduce.edit');
-        Route::post( 'introduce/submitEdit', 'introduceController@submitEdit')->name('admin.introduce.submitEdit');
+    Route::prefix('admin/introduce')->name('admin.introduce.')->group(function (){
+        Route::get('/', 'introduceController@index')->name('index');
+        Route::get('create', 'introduceController@create')->name('create');
+        Route::post('store', 'introduceController@store')->name('store');
     });
 ?>
