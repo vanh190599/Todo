@@ -35,6 +35,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="adm/js/raphael-min.js"></script>
     <script src="adm/js/morris.js"></script>
     <script type="text/javascript" src="adm/ckeditor/ckeditor.js"></script>
+
+    @yield('custom_css')
+
 </head>
 <body>
 <section id="container">
@@ -172,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <section class="wrapper">
 
             @yield('main')
-            @yield('add_category');
+            @yield('add_category')
 
 
         </section>

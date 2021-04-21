@@ -51,6 +51,7 @@
                     <p style="color: #9e9e9e; font-size: 14px"><b>Thương hiệu: </b> <span style="color: #1a9cb7">{{isset($data->brand_name)?$data->brand_name:""}} | {{isset($data->category_name)?$data->category_name:""}} </span> </p>
 
                     <p style="color: #222222"><b>Tình trạng:</b>  @if(isset($data->product_so_luong) && $data->product_so_luong>0 )Còn hàng @else Hết hàng @endif </p>
+                    <p style="color: #222222"><b>Kho hàng:</b> {{ isset($data->product_so_luong) ? $data->product_so_luong : '' }} </p>
                     <span>
                <form action="{{url('cart')}}" method="POST">
                   {{ csrf_field() }}
@@ -163,4 +164,15 @@
     </div>
     &nbsp
     @include('frontend.product_khuyen_mai')
+
+@endsection
+
+@section('custom_js')
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Số lượng hiện tại không đủ',
+            text: 'Vui lòng liên hệ 0843190599',
+        })
+    </script>
 @endsection
