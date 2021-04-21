@@ -5,5 +5,7 @@ use App\Http\Controllers\Controller;
 
 class introduceController extends Controller
 {
+    public function index(){
 
+    }
 }
