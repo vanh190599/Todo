@@ -25,6 +25,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="eshoper/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="eshoper/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="eshoper/images/ico/apple-touch-icon-57-precomposed.png">
+
+    @include('frontend.lib.js')
+
+    @yield('custom_css')
+    <style>
+        .limit-1{
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /*(3 dòng)*/
+            -webkit-box-orient: vertical;
+        }
+    </style>
 </head><!--/head-->
 
 <body>
@@ -32,89 +44,13 @@
 @include('frontend.header')
 <hr style="margin-top: -7px; margin-bottom: 8px">
 
-<section id="slider"><!--slider-->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8">
-                <div id="slider-carousel" class="carousel slide" data-ride="carousel" style="height: 385px; width: 795px; position: relative">
-                    <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
-                    </ol>
-
-                    <div class="carousel-inner" style="width: 795px">
-                        <div class="item active" style="width: 895px">
-                            <img src="upload/slide/p1.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
-                        </div>
-                        <div class="item" style="width: 895px">
-                            <img src="upload/slide/p2.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
-                        </div>
-                        <div class="item" style="width: 895px">
-                            <img src="upload/slide/p3.jpg"  style="height: 385px; margin-left: -100px; width: 795px;">
-                        </div>
-                    </div>
-
-                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev" style="position: absolute; top: 152px; left: 2%">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next" style="position: absolute; right: 2%; top: 152px">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- tin tuc -->
-            <div class=" col-lg-4 col-md-12 col-sm-12">
-                <div class="box-right " style="margin-left: 23px; ">
-                    <p class="text-center title-lastest" style="background: #FE980F; font-size: 15px">TIN MỚI NHẤT</p>
-                    <ul>
-                        @foreach($news as $rows)
-                            <li style="display: flex; padding-bottom: 5px">
-                                <a href="{{ url('news-detail/'.$rows->news_id) }}">
-                                    <img src="upload/news/{{$rows->news_image}}" style="width: 80px; height: 60px;" alt="">
-                                    <div class="content-right" style="width: 200px">
-                                        <a href="{{ url('news-detail/'.$rows->news_id) }}">
-                                            <p class="limit">@isset($rows->news_title) {{ $rows->news_title }} @endisset</p>
-                                        </a>
-                                        <p style="padding-top: 1px; font-size: 10px">{{ isset($rows->created_at)?$rows->created_at:'' }}</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <div style="border: 1px dashed #dddddd"></div>
-                        @endforeach
-                    </ul>
-                    <p class="text-right" style="padding: 0; margin: 0; padding-bottom: 3px"><a href="{{ url('tin-moi') }}" class="xemthem" ><i >Xem thêm &nbsp; &nbsp; &nbsp;</i></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--/slider-->
+@yield('slide')
 
 <section>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-{{--                <!-- chỉ trang Danh mục và Brand đc hiển thị/ Home không hiển thị -->--}}
-{{--                @if(isset($check_show_filter))--}}
-{{--                    <div class="brands_products"><!--brands_products-->--}}
-{{--                        --}}{{--                            <h2 style="color: orangered"><span class="glyphicon glyphicon-filter"></span> giá</h2>--}}
-{{--                        <div class="">--}}
-{{--                            <ul class="list-group">--}}
-{{--                                <li class="" style="">--}}
-{{--                                    <form action="{{url('loc-san-pham-theo-gia/'.$category_id)}}" method="get" style="display: flex; padding: 2px">--}}
-{{--                                        <input type="number" placeholder="Nhập giá mà bạn muốn" value="{{isset($khoang_gia)?$khoang_gia:''}}" name="khoang_gia" class="form-control">--}}
-{{--                                        <button class="pull-right btn"><span class="glyphicon glyphicon-search ">Tìm</span></button>--}}
-{{--                                    </form>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endif--}}
-
                 <div class="left-sidebar">
-
                     <div class="brands_products"><!--products-->
                         <h2 style="color: orangered">sản phẩm</h2>
                         <div class="">
@@ -204,6 +140,9 @@
 <script src="eshoper/js/price-range.js"></script>
 <script src="eshoper/js/jquery.prettyPhoto.js"></script>
 <script src="eshoper/js/main.js"></script>
+
+@yield('custom_js')
+
 </body>
 </html>
 

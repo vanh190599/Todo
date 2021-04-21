@@ -18,8 +18,8 @@
                                 </div>
                             </a>
                             <div class="text-danger" style="margin-top: 6px;">Mã SP: {{$rows->product_id}}</div>
-                            <a  href="{{url('chi-tiet-san-pham/'.$rows->product_id)}}">
-                                <div style="height: 45px; font-size: 16px; text-transform: uppercase;">{{$rows->product_name}}</div>
+                            <a class="limit-1" href="{{url('chi-tiet-san-pham/'.$rows->product_id)}}">
+                                <div class="limit-1" style="height: 45px; font-size: 16px; text-transform: uppercase;">{{$rows->product_name}}</div>
                             </a>
                             <div style="height: 40px;">
                                 <p style="color: #f40606; font-size: 17px;"><b> {{number_format($rows->product_sale_price, 0,",",".")}} đ</b></p>

@@ -37,7 +37,6 @@
             </div>
         </div>
     </div><!--/header-middle-->
-{{--       <div style="height: 100px"></div>--}}
 
     <div class="header-bottom" style="padding: 10px"><!--header-bottom-->
         <div class="container">
@@ -61,7 +60,7 @@
                                     <li><a href="{{ url('sale-product') }}">Sản phẩm khuyến mãi</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{url('trang-chu')}}"  class="text">Giới thiệu</a></li>
+                            <li><a href="{{ route('user.introduce.index')  }}"  class="text">Giới thiệu</a></li>
                             <li><a href="{{url('news')}}"  class="text">Tin tức</a></li>
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
                         </ul>
@@ -71,7 +70,6 @@
                 <div class="col-sm-6">
                     <div class="shop-menu pull-right" style="margin-bottom: 5px">
                         <ul class="nav navbar-nav">
-{{--                        <i class="fa fa-user"></i> Yêu thích</a></li>--}}
                             <li><a href="{{ url('show-login') }}"  style="background: none; color: black;"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
                             <li><a href="{{ url('show-cart') }}"  style="background: none;color: black; "><i class="fa fa-shopping-cart"></i> Giỏ hàng @if(Cart::content()->count()) ( {{Cart::content()->count()}} )@endif  </a></li>
                             <li style="">
@@ -99,6 +97,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div><!--/header-bottom-->

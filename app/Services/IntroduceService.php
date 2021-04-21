@@ -33,8 +33,18 @@ class introduceService
         return $introduce;
     }
 
-    public function first($id){
-        $introduce = $this->introduce->where('id', $id)->first();
-        return $introduce;
+//    public function first($id){
+//        $introduce = $this->introduce->where('id', $id)->first();
+//        return $introduce;
+//    }
+
+    public function isExits(){
+        $data = $this->introduce->get();
+        return sizeof($data) > 0 ? true : false;
+    }
+
+    public function first(){
+        $introduce = $this->introduce;
+        return $introduce->get()->first();
     }
 }

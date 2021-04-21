@@ -92,7 +92,6 @@
     //introduce
     Route::prefix('admin/introduce')->name('admin.introduce.')->group(function (){
         Route::get('/', 'introduceController@index')->name('index');
-        Route::get('create', 'introduceController@create')->name('create');
         Route::post('store', 'introduceController@store')->name('store');
     });
 ?>

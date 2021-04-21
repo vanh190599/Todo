@@ -40,6 +40,8 @@
     Route::get('news-detail/{news_id}', 'newsController@news_detail');
     Route::get('tin-moi', 'newsController@tin_moi');
 
+    Route::get('/introduce', 'introduceController@index')->name('user.introduce.index');
+
     Route::get('test', function(){
         dd(2);
     });
