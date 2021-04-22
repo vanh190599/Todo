@@ -42,28 +42,28 @@
                             <div style="color:#222222;">
                                 <span style="margin: 0px; padding: 0px; font-weight: bold">Giá bán:</span>
                                 <span style="margin: 0px; padding: 0px;font-size: 22px; font-weight: bold; color: red">
-                  {{ isset($data->product_price)?number_format($data->product_price,0,",",".").' ₫' :"" }}
-                  </span>
+                                  {{ isset($data->product_price)?number_format($data->product_price,0,",",".").' ₫' :"" }}
+                                  </span>
                                 <span style="color: #333333; margin: 0px; padding: 0px;">[Giá đã có VAT]</span>
                             </div>
                         @endif
                     </div>
                     <p style="color: #9e9e9e; font-size: 14px"><b>Thương hiệu: </b> <span style="color: #1a9cb7">{{isset($data->brand_name)?$data->brand_name:""}} | {{isset($data->category_name)?$data->category_name:""}} </span> </p>
-
                     <p style="color: #222222"><b>Tình trạng:</b>  @if(isset($data->product_so_luong) && $data->product_so_luong>0 )Còn hàng @else Hết hàng @endif </p>
                     <p style="color: #222222"><b>Kho hàng:</b> {{ isset($data->product_so_luong) ? $data->product_so_luong : '' }} </p>
+
                     <span>
-               <form action="{{url('cart')}}" method="POST">
-                  {{ csrf_field() }}
-                  <label>Số lượng:</label>
-                  <input type="hidden" name="product_id" value="{{ isset($data->product_id)?$data->product_id:'' }}">
-                  <input type="number" value="{{isset($so_luong)?$so_luong:1}}" name="so_luong" />
-                  <button type="submit" class="btn btn-fefault cart">
-                  <i class="fa fa-shopping-cart"></i>
-                  Thêm vào giỏ hàng
-                  </button>
-               </form>
-            </span>
+                       <form action="{{url('cart')}}" method="POST">
+                          {{ csrf_field() }}
+                          <label>Số lượng:</label>
+                          <input type="hidden" name="product_id" value="{{ isset($data->product_id)?$data->product_id:'' }}">
+                          <input type="number" value="{{isset($so_luong)?$so_luong:1}}" name="so_luong" />
+                          <button type="submit" data-qty-current="{{ isset($data->product_so_luong) ? $data->product_so_luong : 0 }}" class="btn btn-fefault add-cart cart">
+                            <i class="fa fa-shopping-cart "></i>Thêm vào giỏ hàng
+                          </button>
+                       </form>
+                    </span>
+
                     <div class="clear: both;"></div>
                     <div class="uu_dai" style="padding-left: 20px">
                         <img src="eshoper/images/uu-dai.png" style="height: 25px; margin-top: -21px; margin-left: 28px; ">
@@ -74,7 +74,6 @@
             </div>
         </div>
         </div>
-
 
         <!--/product-details-->
         <div class="category-tab shop-details-tab">
@@ -99,10 +98,10 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                         <p><b>Write Your Review</b></p>
                         <form action="#">
-                  <span>
-                  <input type="text" placeholder="Your Name"/>
-                  <input type="email" placeholder="Email Address"/>
-                  </span>
+                          <span>
+                          <input type="text" placeholder="Your Name"/>
+                          <input type="email" placeholder="Email Address"/>
+                          </span>
                             <textarea name="" ></textarea>
                             <b>Rating: </b> <img src="eshoper/images/product-details/rating.png" alt="" />
                             <button type="button" class="btn btn-default pull-right">
@@ -169,10 +168,26 @@
 
 @section('custom_js')
     <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Số lượng hiện tại không đủ',
-            text: 'Vui lòng liên hệ 0843190599',
+        $(document).ready(function (){
+            $('.add-cart').click(function (e){
+                let qty = $(this).closest('form').find('input[name="so_luong"]').val()
+                let qty_current = $(this).data('qty-current')
+
+                console.log(qty)
+                console.log(qty_current)
+                if (qty > qty_current) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Số lượng hiện tại không đủ',
+                        text: 'Vui lòng liên hệ 0843190599',
+                    })
+                    return false
+                }
+
+                return true
+            })
         })
+
+
     </script>
 @endsection
