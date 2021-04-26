@@ -1,5 +1,10 @@
 @extends('backend.layout.admin_layout')
 @section('main')
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+          crossorigin="anonymous" />
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel-heading" style="font-weight: bold; color: blue;">
@@ -41,12 +46,47 @@
                                     };
                                 </script>
                             </div>
+
+                            <div class="form-group">
+                                <label>Chọn ảnh</label>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Màu</th>
+                                            <th width="300px">Chọn ảnh</th>
+                                            <th width="80px">action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" name="color_name" class="form-control"></td>
+                                            <td>
+                                                <div style="display: flex">
+                                                    <img id="img" class="" width="80px" height="80px" src="{{ asset('images/default.jpg') }}" alt="" style="margin-right: 10px; object-fit: cover">
+                                                    <input type="file" name="color_image" class="uploadFile">
+                                                </div>
+                                            </td>
+                                            <td style="vertical-align: inherit; text-align: center">
+                                                <button class="btn btn-primary add-color">Thêm</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Xanh</td>
+                                            <td><img src="" alt="" style="height: 80px; width: 80px; object-fit: cover"></td>
+                                            <td><button class="btn-danger btn">Xóa</button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Danh mục <span class="text-danger">*</span></label>
                                 <select name="category_id" id="get_status" class="form-control input-sm m-bot15">
-                                        @foreach($category as $rows)
-                                            <option value="{{isset($rows->category_id)?"$rows->category_id":""}}">{{ isset($rows->category_name)?"$rows->category_name":"" }}</option>
-                                        @endforeach
+                                    @foreach($category as $rows)
+                                        <option value="{{isset($rows->category_id)?"$rows->category_id":""}}">{{ isset($rows->category_name)?"$rows->category_name":"" }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -116,4 +156,67 @@
                 </div>
             </section>
         </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+                integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+                crossorigin="anonymous"></script>
+
+        <script>
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            $('.uploadFile').on('change', function (e) {
+                var file_data = e.target.files[0];
+                console.log(file_data)
+                var type = file_data.type;
+                var name = file_data.name;
+                var match = ["image/png", "image/jpg", "image/jpeg"];
+
+                if (type == match[0] || type == match[1] || type == match[2] || type == match[3] || type == match[4]) {
+                    var form_data = new FormData();
+                    form_data.append('file', file_data);
+                    $.ajax({
+                        url: "{{ route('admin.upload') }}",
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (res) {
+                            if (res.success == 1) {
+                                let url = BASE_URL + '/upload/upload/'+ res.data;
+                                $('#img').attr('src', url)
+
+
+                                toastr.success('Tải ảnh thành công', 'success')
+                            } else {
+                                toastr.error('Upload thất bại!');
+                            }
+                        }
+                    });
+                } else {
+                    toastr.error('Sai định dạng file!');
+                    return false;
+                }
+            })
+
+
+
+        </script>
 @endsection

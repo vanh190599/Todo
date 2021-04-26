@@ -36,6 +36,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="adm/js/morris.js"></script>
     <script type="text/javascript" src="adm/ckeditor/ckeditor.js"></script>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script type="text/javascript">
+        const BASE_URL = window.location.origin + '/chudinh/public';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+
     @yield('custom_css')
 
 </head>

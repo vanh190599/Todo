@@ -94,4 +94,6 @@
         Route::get('/', 'introduceController@index')->name('index');
         Route::post('store', 'introduceController@store')->name('store');
     });
+
+    Route::post('admin/upload', 'UploadController@upload')->name('admin.upload');
 ?>

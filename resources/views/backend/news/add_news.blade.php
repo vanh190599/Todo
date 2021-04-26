@@ -1,5 +1,7 @@
 @extends('backend.layout.admin_layout')
 @section('main')
+
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel-heading" style="font-weight: bold; color: blue;">
@@ -11,12 +13,12 @@
                     </div>
                     <div class="position-center">
                         <form enctype="multipart/form-data" role="form" method="post" action="{{ url('admin/do-add-news') }}">
-                            {{--                <form role="form" method="post" action="{{url('save-product')}}">--}}
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tiêu đề</label>
                                 <input type="text" value=""  required class="form-control" name="news_title" id="exampleInputEmail1" >
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">hình ảnh</label>
                                 <input type="file" value="" required class="" name="news_image" id="exampleInputEmail1" >
@@ -68,4 +70,7 @@
                 </div>
             </section>
         </div>
+
+
+
 @endsection
