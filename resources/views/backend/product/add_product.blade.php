@@ -1,10 +1,8 @@
 @extends('backend.layout.admin_layout')
 @section('main')
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
           integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
           crossorigin="anonymous" />
-
     <div class="row">
         <div class="col-lg-12">
             <div class="panel-heading" style="font-weight: bold; color: blue;">
@@ -49,7 +47,7 @@
 
                             <div class="form-group">
                                 <label>Chọn ảnh</label>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-color">
                                     <thead>
                                         <tr>
                                             <th>Màu</th>
@@ -58,23 +56,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="form-color">
                                             <td><input type="text" name="color_name" class="form-control"></td>
                                             <td>
                                                 <div style="display: flex">
                                                     <img id="img" class="" width="80px" height="80px" src="{{ asset('images/default.jpg') }}" alt="" style="margin-right: 10px; object-fit: cover">
                                                     <input type="file" name="color_image" class="uploadFile">
                                                 </div>
+                                                <input type="text" name="link_image" disabled style="width: 100%">
                                             </td>
                                             <td style="vertical-align: inherit; text-align: center">
-                                                <button class="btn btn-primary add-color">Thêm</button>
+                                                <a href="javascript:void(0)" class="btn btn-primary add-color">Thêm</a>
                                             </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Xanh</td>
-                                            <td><img src="" alt="" style="height: 80px; width: 80px; object-fit: cover"></td>
-                                            <td><button class="btn-danger btn">Xóa</button></td>
                                         </tr>
 
                                     </tbody>
@@ -202,8 +195,7 @@
                             if (res.success == 1) {
                                 let url = BASE_URL + '/upload/upload/'+ res.data;
                                 $('#img').attr('src', url)
-
-
+                                $('.form-color').find("input[name='link_image']").val(url)
                                 toastr.success('Tải ảnh thành công', 'success')
                             } else {
                                 toastr.error('Upload thất bại!');
@@ -216,7 +208,34 @@
                 }
             })
 
+            $(document).ready(function (){
+                $('.add-color').on('click', function (){
+                    let name = $('.form-color').find('input[name="color_name"]').val()
+                    let link = $('.form-color').find('input[name="link_image"]').val()
 
+                    if (name == "") toastr.error('Vui lòng nhập màu', 'error')
+                    else if (link == "") toastr.error('Vui lòng chọn ảnh', 'error')
+                    else {
+                        let html = `
+                        <tr class="form-color color-item">
+                            <td><input type="text" name="color_name" value="`+ name +`" class="form-control" disabled></td>
+                            <td>
+                                <div style="display: flex">
+                                    <img id="img" class="" width="80px" height="80px" src="`+link+`" alt="" style="margin-right: 10px; object-fit: cover">
+                                </div>
+                            </td>
+                            <td style="vertical-align: inherit; text-align: center">
+                                <a href="javascript:void(0)" class="btn btn-danger delete-color">Xóa</a>
+                            </td>
+                        </tr>
+                    `
+                        $('.table-color').find('tbody').append(html)
+                    }
+                })
 
+                $(this).delegate('.delete-color', 'click', function (){
+                    $(this).closest('.color-item').remove()
+                })
+            })
         </script>
 @endsection
