@@ -21,7 +21,9 @@
                     <p style="margin-top: -40px; color: #212121; font-size: 22px; font-weight: normal" class="product_name">
                         {{ isset($data->product_name)?$data->product_name:"" }}
                     </p>
+
                     <p>Mã sản phẩm: {{ isset($data->product_id)?$data->product_id:"" }}</p>
+
                     <img src="eshoper/images/product-details/rating.png" alt="" />
                     <div style=" background: #f0f0f0; margin: 5px 0px 5px 0px ;padding: 9px; border-radius: 10px">
                         @if( isset($data->product_sale_price) && $data->product_sale_price > 0 )
@@ -48,8 +50,15 @@
                             </div>
                         @endif
                     </div>
+
                     <p style="color: #9e9e9e; font-size: 14px"><b>Thương hiệu: </b> <span style="color: #1a9cb7">{{isset($data->brand_name)?$data->brand_name:""}} | {{isset($data->category_name)?$data->category_name:""}} </span> </p>
+
+                    @if($data->size)
+                        <p style="color: #222222"> <b>Size:</b> {{ $data->size }}</p>
+                    @endif
+
                     <p style="color: #222222"><b>Tình trạng:</b>  @if(isset($data->product_so_luong) && $data->product_so_luong>0 )Còn hàng @else Hết hàng @endif </p>
+
                     <p style="color: #222222"><b>Kho hàng:</b> {{ isset($data->product_so_luong) ? $data->product_so_luong : '' }} </p>
 
                     <span>

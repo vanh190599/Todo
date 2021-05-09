@@ -5,37 +5,45 @@
             <div class="panel-heading" style="font-weight: bold; color: blue;">
                 Sửa thông tin sản phẩm
             </div>
+
             <section class="panel">
                 <div class="panel-body">
                     <div class="col-lg-12 text-danger text-center">
                     </div>
+
                     <div class="position-center">
                         <form enctype="multipart/form-data" role="form" method="post" action="{{url( $formAction )}}">
-                            {{--                <form role="form" method="post" action="{{url('save-product')}}">--}}
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên sản phẩm</label>
                                 <input type="text" value="{{isset($record->product_name)?$record->product_name:""}}"
                                        required class="form-control" name="product_name" id="exampleInputEmail1" >
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Hình ảnh</label>
                                 <input type="file" value="{{isset($record->product_name)?$record->product_name:""}}"
                                         class="" name="product_image" id="exampleInputEmail1" >
                                 <img src="upload/product/{{$record->product_image}}" style="width: 170px; height: 170px; padding: 5px;
                                     border:1px solid #dddddd; margin-top: 7px" alt="">
-
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Danh mục</label>
+                                <label for="exampleInputEmail1">Size</label>
+                                <input type="text" name="size" value="{{ old('size', $record->size) }}"
+                                       required class="form-control" id="exampleInputEmail1" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Size</label>
                                 <select name="category_id" id="get_status" class="form-control input-sm m-bot15">
                                     @foreach($category as $rows)
-{{--                                    neu cate_id ban dau =  1 phan tu trong list_cate ->auto chon (set mac dinh ban dau) --}}
                                         <option @if(isset($rows->category_id) && $rows->category_id == $record->category_id) selected @endif
-                                                value="{{isset($rows->category_id)?"$rows->category_id":""}}">{{ isset($rows->category_name)?"$rows->category_name":"" }}</option>
+                                        value="{{isset($rows->category_id)?"$rows->category_id":""}}">{{ isset($rows->category_name)?"$rows->category_name":"" }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Hãng</label>
                                 <select name="brand_id" id="get_status" class="form-control input-sm m-bot15">
@@ -45,6 +53,7 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá gốc</label>
                                 <input type="" value="{{isset($record->product_price)?$record->product_price:""}}"
@@ -53,6 +62,7 @@
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá bán</label>
                                 <input type="" value="{{isset($record->product_sale_price)?$record->product_sale_price:""}}"

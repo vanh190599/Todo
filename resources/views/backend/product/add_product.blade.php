@@ -15,6 +15,7 @@
                     <div class="position-center">
                         <form enctype="multipart/form-data" role="form" method="post" action="{{url( $formAction )}}">
                             {{ csrf_field() }}
+                            <input type="hidden" name="colors" >
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên sản phẩm <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" value="{{ old('product_name') }}" name="product_name" id="exampleInputEmail1" >
@@ -82,6 +83,12 @@
                                     @endforeach
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Size <span class="text-danger">*</span></label>
+                                <input type="text" name="size" class="form-control input-sm m-bot15">
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Hãng sản xuất <span class="text-danger">*</span></label>
                                 <select name="brand_id" id="get_status" class="form-control input-sm m-bot15">
@@ -90,13 +97,15 @@
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Giá gốc <span class="text-danger">*</span></label>
+                                <labelclass="product-information" for="exampleInputEmail1">Giá gốc <span class="text-danger">*</span></label>
                                 <input value="{{ old('product_price') }}" class="form-control"  name="product_price" id="exampleInputEmail1" >
                                 @error('product_price')
                                 <span class="form-text text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá bán <span class="text-danger">*</span></label>
                                 <input class="form-control" value="{{ old('product_sale_price') }} " name="product_sale_price" id="exampleInputEmail1" >
@@ -143,7 +152,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-info">Thực hiện</button>
+                            <button type="submit" class="btn btn-info btn-submit">Thực hiện</button>
                         </form>
                     </div>
                 </div>
@@ -217,7 +226,7 @@
                     else if (link == "") toastr.error('Vui lòng chọn ảnh', 'error')
                     else {
                         let html = `
-                        <tr class="form-color color-item">
+                        <tr class="color-item">
                             <td><input type="text" name="color_name" value="`+ name +`" class="form-control" disabled></td>
                             <td>
                                 <div style="display: flex">
@@ -230,12 +239,37 @@
                         </tr>
                     `
                         $('.table-color').find('tbody').append(html)
+
+                        $('#img').attr('src', '{{ asset("images/default.jpg") }}')
+                        $('.form-color').find("input[name='color_name']").val('')
                     }
                 })
 
                 $(this).delegate('.delete-color', 'click', function (){
                     $(this).closest('.color-item').remove()
                 })
+            })
+        </script>
+
+        <script>
+            $('.btn-submit').on('click', function (e){
+                let color = $('.color-item')
+                let listColor = []
+
+                if (color.length > 0) {
+                    $.each(color, function (key, value) {
+                        let src = $(value).find('img').attr('src')
+                        let name = $(value).find('input[name="color_name"]').val()
+
+                        listColor.push({
+                            name: name,
+                            image: src
+                        })
+                    })
+                    $('input[name="colors"]').val( JSON.stringify(listColor) )
+                }
+                console.log(listColor)
+
             })
         </script>
 @endsection

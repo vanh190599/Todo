@@ -37,6 +37,7 @@
                             <span class="input-group-btn">
                                 <button class="btn btn-sm btn-default" type="submit">Search</button>
                             </span>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -46,15 +47,16 @@
                 <thead>
                 <tr>
                     <th  style="color: black;" >#</th>
-                    <th  style="color: black;" >Image</th>
-                    <th  style="color: black;" >Category</th>
-                    <th style="color: black;" >Brand</th>
-                    <th style="color: black;" >Name</th>
-                    <th style="color: black;" >Price</th>
-                    <th style="color: black;" >Price Sale</th>
-                    <th style="color: black;" >Qty</th>
-                    <th style="color: black;" >Saled</th>
-                    <th style="color: black;" >Show</th>
+                    <th  style="color: black;" >Ảnh</th>
+                    <th  style="color: black;" >Danh mục</th>
+                    <th style="color: black;" >Hãng</th>
+                    <th style="color: black;" >Tên</th>
+                    <th style="color: black;" >Màu</th>
+                    <th style="color: black;" >Giá</th>
+                    <th style="color: black;" >Giá bán</th>
+                    <th style="color: black;" >Số lượng</th>
+                    <th style="color: black;" >Đã bán</th>
+                    <th style="color: black;" >Hiển thị</th>
                     <th style="color: black;" >Action</th>
                 </tr>
                 </thead>
@@ -63,31 +65,52 @@
                 @foreach($data as $key => $rows)
                     <tr>
                         <td style="color: black;">{{ $key + $data->firstItem() }}</td>
+
                         <td style="color: black;">
                             <img class="" style="width: 70px; height: 70px; border: 1px solid #dddddd; border-radius: 8px; " src="upload/product/{{$rows->product_image}}" alt="">
                         </td>
+
                         <td style="color: black;">
                             <?php
-                            $category_name = DB::table('tbl_category')->where('category_id', $rows->category_id)->value('category_name');
-                            echo $category_name;
+                                $category_name = DB::table('tbl_category')->where('category_id', $rows->category_id)->value('category_name');
+                                echo $category_name;
                             ?>
                         </td>
+
                         <td style="color: black;">
                             <?php
-                            $brand_name = DB::table('tbl_brand')->where('brand_id', $rows->brand_id)->value('brand_name');
-                            echo $brand_name;
+                                $brand_name = DB::table('tbl_brand')->where('brand_id', $rows->brand_id)->value('brand_name');
+                                echo $brand_name;
                             ?>
                         </td>
-                        <td style="color: black;"> {{ isset($rows->product_name)?$rows->product_name:''  }} </td>
-                        <td style="color: black; text-decoration: line-through"> {{ isset($rows->product_price)?number_format($rows->product_price):'' }} </td>
-                        <td style="color: black;"> {{ isset($rows->product_sale_price)?number_format($rows->product_sale_price):'' }} </td>
-                        <td style="color: black;"> {{ isset($rows->product_so_luong)?number_format($rows->product_so_luong):''  }} </td>
-                        <td style="color: black;"> {{ isset($rows->product_so_luong_ban)?number_format($rows->product_so_luong_ban):''  }} </td>
+
+                        <td style="color: black;"> {{ isset($rows->product_name) ? $rows->product_name:''  }} </td>
+
+                        <td style="color: black;">
+                            @if (! empty($rows->colors))
+                                @foreach(json_decode($rows->colors, true) as $key => $value)
+                                    <div class="d-flex align-item-center">
+                                        <img src="{{ isset($value['image']) ? $value['image'] : '' }}" alt="" style="width: 50px; height: 50px">
+                                        <a href="javascript:void(0)">{{ isset($value['name']) ? $value['name'] : '' }}</a>
+                                    </div>
+                                    <br>
+                                @endforeach
+                            @endif
+                        </td>
+
+                        <td style="color: black; text-decoration: line-through"> {{ isset($rows->product_price) ? number_format($rows->product_price):'' }} </td>
+
+                        <td style="color: black;"> {{ isset($rows->product_sale_price) ? number_format($rows->product_sale_price):'' }} </td>
+
+                        <td style="color: black;"> {{ isset($rows->product_so_luong) ? $rows->product_so_luong:''  }} </td>
+
+                        <td style="color: black;"> {{ isset($rows->product_so_luong_ban) ? $rows->product_so_luong_ban:''  }} </td>
 
                         <td>
-                        <span class="text-ellipsis" style="@if($rows->product_status==1) color:black; @endif ">
-                            @if($rows->product_status==1) Hiện @else Ẩn @endif
-                        </span></td>
+                            <span class="text-ellipsis" style="@if($rows->product_status==1) color:black; @endif ">
+                                @if($rows->product_status==1) Hiện @else Ẩn @endif
+                            </span>
+                        </td>
 
                         <td>
                             <a href="{{url('admin/edit-product/'.$rows->product_id )}}" class="active" ui-toggle-class="">

@@ -56,7 +56,19 @@ class productController extends Controller
 
     public function do_add_product(CreateRequest $request){
         if (!$this->AuthLogin()) return redirect('admin');
-        $data = $request->all();
+        $data = $request->only(
+            'colors',
+            'size',
+            'product_name',
+            'category_id',
+            'brand_id',
+            'product_price',
+            'product_sale_price',
+            'product_so_luong',
+            'product_desc',
+            'product_uu_dai',
+            'product_status'
+        );
         $data['product_so_luong_ban'] = 0;
         $get_image = $request->file('product_image');
 
@@ -67,6 +79,7 @@ class productController extends Controller
             product::create($data);
             return redirect('admin/list-product')->with('add', 'Success!');
         }
+
         $data['product_image'] = "";
         product::create($data);
 
@@ -91,9 +104,10 @@ class productController extends Controller
         if (!$get_image) {
             product::where('product_id','=', $product_id)
                 ->update([
-                    "brand_id" => $request->brand_id,
-                    "category_id" => $request->category_id,
-                    "product_name" => $request->product_name,
+                    "brand_id" => isset($request->brand_id) ? $request->brand_id : '' ,
+                    "category_id" => isset($request->category_id) ? $request->category_id : '' ,
+                    "size" => isset($request->size) ? $request->size : '' ,
+                    "product_name" => isset($request->product_name) ? $request->product_name : '' ,
                     "product_price" => $request->product_price,
                     "product_status" => $request->product_status,
                     "product_sale_price" => $request->product_sale_price,
