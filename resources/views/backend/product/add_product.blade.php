@@ -3,6 +3,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
           integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
           crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+          integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw=="
+          crossorigin="anonymous" />
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel-heading" style="font-weight: bold; color: blue;">
@@ -145,8 +149,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Hiển thị</label>
-                                <select name="product_status" id="get_status" class="form-control input-sm m-bot15">
+                                <label for="exampleInputPassword1">Gợi ý sản phẩm <span class="text-danger">*</span></label>
+
+                                <select class="js-example-basic-single" name="suggest[]" multiple="multiple">
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Hiển thị</label><br>
+                                <select name="product_status form-control" id="get_status" class="form-control input-sm m-bot15">
                                     <option value="1" >Hiển thị</option>
                                     <option value="0" >Ẩn</option>
                                 </select>
@@ -159,10 +172,56 @@
             </section>
         </div>
 
+        <style>
+            .select2-container.select2-container--default {
+                width: 100% !important;
+            }
+        </style>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"
+                integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A=="
+                crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
                 integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
                 crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                var products = @json($allProduct);
+                console.log(products)
+                var data = []
+                if (products.length > 0) {
+                    console.log(23)
+                    $.each(products, function (key, value) {
+                        data.push({
+                            id: value.product_id,
+                            img: value.product_image,
+                            text: value.product_name,
+                        })
+                    })
+                }
+
+                function formatState (state) {
+                    if (!state.id) {
+                        return state.text;
+                    }
+                    var img = "{{ asset('upload/product/') }}/" + state.img;
+                    var $state = $(
+                        '<span><img src="'+img+'" class="img-flag" style="width: 50px; height: 50px; object-fit: cover" /> ' + state.text + '</span>'
+                    );
+                    return $state;
+                }
+
+                $(".js-example-basic-single").select2({
+                    templateResult: formatState,
+                    data: data
+                });
+
+            });
+        </script>
 
         <script>
             toastr.options = {

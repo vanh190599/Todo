@@ -45,13 +45,16 @@ class productController extends Controller
             ->orderBy('brand_id', 'desc')
             ->get();
 
-       return view('backend.product.add_product',
-           array(
-               "formAction"=>$formAction,
-               "category"=>$category,
-               "brand"=>$brand
-           )
-       );
+        $allProduct = product::get(['product_id', 'product_name', 'product_image']);
+
+         return view('backend.product.add_product',
+               array(
+                   "formAction"=>$formAction,
+                   "category"=>$category,
+                   "brand" => $brand,
+                   "allProduct" => $allProduct
+               )
+         );
     }
 
     public function do_add_product(CreateRequest $request){
@@ -67,8 +70,10 @@ class productController extends Controller
             'product_so_luong',
             'product_desc',
             'product_uu_dai',
-            'product_status'
+            'product_status',
+            'suggest'
         );
+        $data['suggest'] = implode(",", $data['suggest']);
         $data['product_so_luong_ban'] = 0;
         $get_image = $request->file('product_image');
 

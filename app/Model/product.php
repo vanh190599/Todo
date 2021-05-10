@@ -16,6 +16,7 @@ class product extends Model
         'product_price',
         'product_sale_price',
         'product_image',
+        'suggest',
         'product_status',
         'product_desc',
         'product_uu_dai',
