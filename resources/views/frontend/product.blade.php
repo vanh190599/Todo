@@ -20,7 +20,8 @@
                             @if($rows->product_sale_price > 0)
                                 <div class="anh_sale">
                                     <div class="phantram">
-                                        <?php $phantram = (($rows->product_price - $rows->product_sale_price)/$rows->product_price)*100 ?>
+                                        <?php $phantram
+                                            = (($rows->product_price - $rows->product_sale_price)/$rows->product_price)*100 ?>
                                         <b> -{{ round($phantram)}}% </b>
                                     </div>
                                 </div>

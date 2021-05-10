@@ -96,4 +96,6 @@
     });
 
     Route::post('admin/upload', 'UploadController@upload')->name('admin.upload');
+
+    Route::get('admin/chart', 'DashboardController@chart')->name('admin.chart');
 ?>

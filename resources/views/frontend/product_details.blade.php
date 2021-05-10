@@ -13,6 +13,18 @@
                         </div>
                     @endif
                     <img  src="{{asset('upload/product/'.$data->product_image)}}" style="height: 100%; width: 100%;"  class="img-thumbnail product-detail-img" alt="123">
+
+                    <div style="margin-top: 20px; display: flex; overflow-x: auto;">
+                        @if(! empty($data->colors))
+                            @foreach( json_decode($data->colors, true) as $key => $value)
+                                <div style="margin-right: 20px" class="show-image" data-img="{{ isset($value['image']) ? $value['image'] : '' }}">
+                                    <img src="{{ isset($value['image']) ? $value['image'] : '' }}" alt="" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer">
+                                    <div class="text-center">{{ isset($value['name']) ? $value['name'] : '' }}</div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-7 col-sm-7">
@@ -55,6 +67,16 @@
 
                     @if($data->size)
                         <p style="color: #222222"> <b>Size:</b> {{ $data->size }}</p>
+                    @endif
+
+                    @if(! empty($data->colors))
+                        <p style="color: #222222"> <b>Size:</b>
+                            @foreach( json_decode($data->colors, true) as $key => $value)
+                                <a href="javascript:void(0)" data-img="{{ isset($value['image']) ? $value['image'] : '' }}" class="show-image">
+                                    {{ $value['name'] }} @if(sizeof(json_decode($data->colors, true))-1 != $key) - @endif
+                                </a>
+                            @endforeach
+                        </p>
                     @endif
 
                     <p style="color: #222222"><b>Tình trạng:</b>  @if(isset($data->product_so_luong) && $data->product_so_luong>0 )Còn hàng @else Hết hàng @endif </p>
@@ -171,8 +193,26 @@
         <!--/category-tab-->
     </div>
     &nbsp
-    @include('frontend.product_khuyen_mai')
 
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">&nbsp</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img" src="" alt="" style="width: 550px; height: 550px">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @include('frontend.product_khuyen_mai')
 @endsection
 
 @section('custom_js')
@@ -197,6 +237,11 @@
             })
         })
 
+        $('.show-image').click(function (){
+            let img = $(this).data('img')
+            $('#myModal').modal('show')
+            $('#myModal').find('.img').attr('src', img)
+        })
 
     </script>
 @endsection

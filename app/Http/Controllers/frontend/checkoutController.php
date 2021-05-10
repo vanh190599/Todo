@@ -73,15 +73,17 @@ class checkoutController extends Controller
             "order_status"=>0,
             "order_time"=>Carbon::now()
         );
+
         $order_id = DB::table('tbl_order')->insertGetId($data_2);
         $content = Cart::content();
         foreach ($content as $rows) {
             DB::table('tbl_order_details')->insert(array(
-                "order_id"=>$order_id,
-                "product_id"=>$rows->id,
-                "product_name"=>$rows->name,
-                "product_price"=>$rows->price,
-                "product_sale_qty"=>$rows->qty,
+                "order_id" => $order_id,
+                "product_id" => $rows->id,
+                "product_name" => $rows->name,
+                "product_price" => $rows->price,
+                "product_sale_qty" => $rows->qty,
+                "date_c" => time(),
             ));
         }
 
