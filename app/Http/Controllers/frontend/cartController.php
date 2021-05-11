@@ -10,7 +10,9 @@ session_start();
 class cartController extends Controller
 {
     public function save_cart(Request $request){
-        $product_infor = DB::table('tbl_product')->where('product_id', $request->product_id)->where('product_status', 1)->first();
+        //$product_infor = DB::table('tbl_product')->where('product_id', $request->product_id)->where('product_status', 1)->first();
+
+        $product_infor = product::where('product_id', $request->product_id)->first();
 
         if ($product_infor->product_sale_price == 0) {
             $gia_san_pham = $product_infor->product_price;
@@ -53,6 +55,12 @@ class cartController extends Controller
     }
 
     public function update_cart_qty(Request $request) {
+        $product_infor = product::where('product_id', $request->product_id)->first();
+
+        if ($product_infor->product_so_luong < $request->qty) {
+            return back()->with('error', 'Số lượng hiện tại không đủ!');
+        }
+
         Cart::update($request->rowId, $request->qty);
         return redirect('show-cart');
     }

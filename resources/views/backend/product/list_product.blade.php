@@ -67,7 +67,7 @@
                         <td style="color: black;">{{ $key + $data->firstItem() }}</td>
 
                         <td style="color: black;">
-                            <img class="" style="width: 70px; height: 70px; border: 1px solid #dddddd; border-radius: 8px; " src="upload/product/{{$rows->product_image}}" alt="">
+                            <img class="" style="width: 70px; height: 70px; border: 1px solid #dddddd; border-radius: 8px; object-fit: cover " src="upload/product/{{$rows->product_image}}" alt="">
                         </td>
 
                         <td style="color: black;">

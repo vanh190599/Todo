@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminLoginRequest;
+use App\Model\product;
 use App\Services\AdminService;
 use Illuminate\Http\Request;
 use DB;
@@ -13,10 +14,12 @@ session_start();
 class adminController extends Controller
 {
     private $admin;
+    private $product;
 
-    public function __construct(admin $admin)
+    public function __construct(admin $admin, product $product)
     {
         $this->admin = $admin;
+        $this->product = $product;
     }
 
     public function Authlogin(){
@@ -28,16 +31,19 @@ class adminController extends Controller
     }
 
     public function index(){
-        if (!empty(session('admin_id'))) {
-            return redirect('admin/dashboard');
+        if (! empty(session('admin_id'))) {
+            return redirect('admin/dashboard')->w;
         }
 
         return view('backend.login.admin_login');
     }
 
     public function show_dashboard(){
-        if (!$this->Authlogin())  return redirect('admin');
-        return view('backend.dashboard.index');
+        if (! $this->Authlogin())  return redirect('admin');
+
+        $top_sale = $this->product->orderBy('product_so_luong_ban', 'desc')->paginate(10);
+
+        return view('backend.dashboard.index')->with('top_sale', $top_sale);
     }
 
     public function logout(){

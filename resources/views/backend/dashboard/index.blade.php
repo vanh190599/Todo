@@ -7,6 +7,33 @@
     </style>
 
     <div style="padding: 20px 20px">
+        <p style="font-weight: 600; margin-bottom: 10px">Sản phẩm bán nhiều nhất</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th width="10px">#</th>
+                <th>Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th class="text-center">Đã bán</th>
+            </tr>
+            </thead>
+            <tbody>
+                @if(! empty($top_sale))
+                    @foreach($top_sale as $key => $value)
+                        <tr>
+                            <td>{{ $key + $top_sale->firstItem() }}</td>
+                            <td><img src="{{ asset('upload/product/'.$value->product_image) }}" alt="" style="width: 40px; height: 40px; object-fit: cover"></td>
+                            <td style="color: black">{{ $value->product_name }}</td>
+                            <td style="color: black" class="text-center">{{ ! empty($value->product_so_luong_ban) ? $value->product_so_luong_ban : 0  }}</td>
+                        </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
+        <div>
+            {{ $top_sale->links() }}
+        </div>
+        <hr>
         <div>
             <div id="chartByDay"></div>
         </div>

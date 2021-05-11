@@ -12,6 +12,13 @@ use App\Http\Requests\Product\CreateRequest;
 use Illuminate\Support\Facades\Storage;
 class productController extends Controller
 {
+    private $product;
+
+    public function __construct(product $product)
+    {
+        $this->product = $product;
+    }
+
     public function show_detail($product_id){
         $category = DB::table('tbl_category')
             ->where('category_status', 1)
@@ -40,12 +47,18 @@ class productController extends Controller
             ->orderBy('product_id', 'desc')
             ->paginate(8);
 
+        if (! empty($data->suggest)) {
+            $arySearch = explode(',', $data->suggest);
+            $suggest = $this->product->whereIn('product_id', $arySearch)->limit(6)->get();
+        }
+
         return view('frontend.product_details', array(
-            "category"=>$category,
-            "brand"=>$brand,
-            "data"=>$data,
-            "san_pham_lien_quan"=>$san_pham_lien_quan,
-            "sale_product"=>$sale_product
+            "category" => $category,
+            "brand" => $brand,
+            "data" => $data,
+            "san_pham_lien_quan" => $san_pham_lien_quan,
+            "sale_product" => $sale_product,
+            "suggest" => !empty($suggest) ? $suggest : null,
         ));
     }
 

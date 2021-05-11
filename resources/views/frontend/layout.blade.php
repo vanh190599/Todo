@@ -37,6 +37,12 @@
             -webkit-box-orient: vertical;
         }
     </style>
+
+    <style>
+        .img_product {
+            object-fit: cover !important;
+        }
+    </style>
 </head><!--/head-->
 
 <body>

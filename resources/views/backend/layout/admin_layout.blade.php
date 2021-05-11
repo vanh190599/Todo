@@ -50,6 +50,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
+
+<style>
+    .img_product {
+        object-fit: cover !important;
+    }
+</style>
+
 <section id="container">
     <!--header start-->
     <header class="header fixed-top clearfix">

@@ -98,8 +98,17 @@ class productController extends Controller
         $brand =  DB::table('tbl_brand')->orderBy('brand_id', 'desc')->get();
         $record =  DB::table('tbl_product')->where('product_id', '=', $product_id)->first();
 
-        return view('backend.product.edit_product', array('record'=>$record, 'formAction'=>$formAction,
-                'category'=>$category, 'brand'=>$brand
+        $allProduct = product::get(['product_id', 'product_name', 'product_image']);
+
+        $arySuggest = array_map('intval', explode(',', $record->suggest));
+
+        return view('backend.product.edit_product', array(
+            'record' => $record,
+            'formAction' => $formAction,
+            'category' => $category,
+            'brand'=>$brand,
+            'allProduct' => $allProduct,
+            'arySuggest' => $arySuggest
         ));
     }
 
@@ -119,7 +128,9 @@ class productController extends Controller
                     "product_desc" => $request->product_desc,
                     "product_uu_dai" => $request->product_uu_dai,
                     "product_so_luong" => $request->product_so_luong,
-                    "product_so_luong_ban" => $request->product_so_luong_ban
+                    "product_so_luong_ban" => $request->product_so_luong_ban,
+                    "colors" => $request->colors,
+                    "suggest" => implode(",", $request->suggest)
                 ]);
         } else {
             $file_name_old = product::where('product_id', $product_id)->value('product_image');
@@ -141,7 +152,9 @@ class productController extends Controller
                     "product_desc" => $request->product_desc,
                     "product_uu_dai" => $request->product_uu_dai,
                     "product_so_luong" => $request->product_so_luong,
-                    "product_so_luong_ban" => $request->product_so_luong_ban
+                    "product_so_luong_ban" => $request->product_so_luong_ban,
+                    "colors" => $request->colors,
+                    "suggest" => implode(",", $request->suggest)
                 ]);
         }
         return redirect()->route('list_product')->with('add', "Sửa thành công!");
@@ -150,11 +163,11 @@ class productController extends Controller
     public function delete_product($product_id){
         if (!$this->AuthLogin()) return redirect('admin');
 
-        $file_name = product::where('product_id', $product_id)->value('product_image');
-        //dd($file_name);
-        if ($file_name) {
-            unlink('upload/product/'.$file_name);
-        }
+//        $file_name = product::where('product_id', $product_id)->value('product_image');
+//        //dd($file_name);
+//        if ($file_name) {
+//            unlink('upload/product/'.$file_name);
+//        }
         product::where('product_id', '=', $product_id)->delete();
 
         return redirect('admin/list-product')->with('add', 'Success!');

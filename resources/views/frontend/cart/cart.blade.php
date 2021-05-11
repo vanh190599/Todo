@@ -10,6 +10,13 @@
         <div style="font-size: 20px; background: #e6e4df; padding: 6px; color: orangered; text-align: center">{{ session('order-message') }}</div>
     @endif
     <div class="text-center" style="padding: 10px; color: #FE980F; font-size: 20px"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng @if(Cart::content()->count()) ( {{Cart::content()->count()}} )@endif </div>
+
+        <div style="padding: 10px 0; font-size: 16px" class="text-danger">
+            @if(session()->has('error'))
+                {{ session('error') }}
+            @endif
+        </div>
+
         <div class="table-responsive">
             <table class="table table-cart" border="1" style="border: 1px solid #dddddd">
                 <thead>
@@ -34,7 +41,7 @@
                         <td>
                             <a href="">
                                 <p><a href=""> {{isset($rows->name)?$rows->name:''}} </a></p>
-                                <p style="color: red">MSP: {{isset($rows->id)?$rows->id:''}} </p>
+                                <p style="color: red">MSP: {{ isset($rows->id) ? $rows->id : '' }} </p>
                             </a>
                         </td>
                         <!-- Gia ban le -->
@@ -47,7 +54,12 @@
                                 {{ csrf_field() }}
                                 <input type="hidden" name="rowId" value="{{isset($rows->rowId)?$rows->rowId:''}}">
                                 <input type="number" name="qty"  id="qty" min="1" class="form-control" style="width: 65px; float: left" value="{{isset($rows->qty)?$rows->qty:''}}" required="Không thể để trống">
-                                <a href="#" style="float: left"><button type="submit" class="btn-sm" style="background: #FE980F; color: white"><span class="glyphicon glyphicon-refresh"></span> Cập nhật</button></a>
+                                <a href="#" style="float: left">
+                                    <button type="submit" class="btn-sm" data-qty-current="{{ isset($data->product_so_luong) ? $data->product_so_luong : 0 }}" style="background: #fe980f; color: #ffffff">
+                                        <span class="glyphicon glyphicon-refresh"></span> Cập nhật
+                                    </button>
+                                </a>
+                                <input name="product_id" type="hidden" value="{{ isset($rows->id) ? $rows->id : '' }}">
                             </form>
                         </td>
                     <!-- Tong tien -->

@@ -27,15 +27,17 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="eshoper/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="eshoper/images/ico/apple-touch-icon-57-precomposed.png">
 
-
-
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0&appId=1092111527826829&autoLogAppEvents=1"></script>
-
-
 </head><!--/head-->
 
 <body>
+
+<style>
+    .img_product {
+        object-fit: cover !important;
+    }
+</style>
 
 <header id="header"><!--header-->
     {{--<div class="container-fluid">
